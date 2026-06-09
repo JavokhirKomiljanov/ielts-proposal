@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BandUp — Tariffs · Project Estimate</title>
+<meta name="description" content="Project estimate for the BandUp IELTS learning platform. Three build tariffs: Starter $3,800, Standard $9,200, Premium $18,500. Prices in USD, valid 30 days." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:    #FBF9F4;
+    --ink:      #10201A;
+    --graphite: #41524A;
+    --pine:     #175E47;
+    --pine-dark:#114835;
+    --sage:     #DEE9E0;
+    --hairline: #E9E4D8;
+    --card:     #FFFFFF;
+    --redpen:   #C75B39;
+    --t-listening: #E4EDF2;
+    --t-reading:   #E2EEE7;
+    --t-writing:   #ECE7F0;
+    --t-speaking:  #F4E7DE;
+    --t-vocab:     #F3EDD9;
+    --t-grammar:   #F1E3E6;
+    --t-mock:      #ECEBE6;
+    --navh: 64px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  [id]{scroll-margin-top:calc(var(--navh) + 24px)}
+  body{
+    margin:0;padding:0;background:var(--paper);color:var(--graphite);
+    font-family:Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{width:min(1140px,92vw);margin:0 auto;position:relative}
+  a{color:var(--pine)}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+    outline:3px solid var(--pine);outline-offset:2px;border-radius:2px}
+  ::selection{background:var(--pine);color:#fff}
+  .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  h1,h2,h3,.serif{
+    font-family:Fraunces,Georgia,serif;
+    font-variation-settings:"SOFT" 50,"opsz" 144;
+    color:var(--ink);margin:0;font-weight:560;
+  }
+  h1{font-size:clamp(48px,8vw,108px);line-height:1.02;letter-spacing:-0.02em}
+  h2{font-size:clamp(34px,5vw,60px);line-height:1.08}
+  h3{font-size:28px;font-weight:500}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .kicker{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;font-weight:500;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--pine);display:block;margin-bottom:18px}
+  .deck{font-size:17px;color:var(--graphite);max-width:560px;margin:18px 0 0}
+  .small{font-size:14px}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* ---------- masthead ---------- */
+  .masthead{border-bottom:1px solid var(--hairline)}
+  .masthead .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:10px 0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;
+    color:var(--graphite);text-transform:uppercase;letter-spacing:.08em}
+  .masthead .mid{position:absolute;left:50%;transform:translateX(-50%)}
+  @media (max-width:860px){.masthead .mid{display:none}}
+  @media (max-width:560px){.masthead .vol{display:none}}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:60;background:var(--paper);
+    border-bottom:1px solid var(--hairline);box-shadow:0 8px 24px rgba(16,32,26,.07)}
+  nav .wrap{display:flex;align-items:center;gap:28px;height:var(--navh)}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .monogram{
+    width:32px;height:32px;border:1px solid var(--hairline);border-radius:4px;display:grid;place-items:center;
+    font:500 14px "IBM Plex Mono",monospace;color:var(--pine);background:var(--card)}
+  .wordmark{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-size:21px;font-weight:560;letter-spacing:-.01em}
+  .navlinks{display:flex;gap:22px;margin:0 auto}
+  .navlinks a{
+    color:var(--ink);text-decoration:none;font-size:15px;font-weight:500}
+  .navlinks a:hover{text-decoration:underline;text-decoration-color:var(--pine);
+    text-decoration-thickness:2px;text-underline-offset:3px}
+  .navright{display:flex;align-items:center;gap:10px;margin-left:auto}
+  .navright a.pricing{
+    color:var(--pine);font-weight:600;font-size:15px;text-decoration:underline;
+    text-decoration-thickness:2px;text-underline-offset:3px}
+  .navtoggle{
+    display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;
+    background:var(--card);border:1px solid var(--hairline);border-radius:4px;cursor:pointer;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink);padding:0 14px}
+  .navtoggle:hover{border-color:var(--pine)}
+  @media (max-width:860px){
+    .navtoggle{display:inline-flex}
+    .navlinks{
+      display:none;position:absolute;top:100%;left:0;right:0;margin:0;
+      flex-direction:column;gap:0;background:var(--paper);
+      border-bottom:1px solid var(--hairline);box-shadow:0 8px 24px rgba(16,32,26,.07);
+      padding:6px 0 10px;z-index:60}
+    .navlinks.open{display:flex}
+    .navlinks a{padding:12px 0;border-top:1px solid var(--hairline);min-height:44px;
+      display:flex;align-items:center}
+    .navlinks a:first-child{border-top:none}
+  }
+
+  /* ---------- sections ---------- */
+  section{border-top:1px solid var(--hairline);padding:70px 0}
+  section:first-of-type{border-top:none}
+  @media (max-width:768px){section{padding:36px 0}}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:84px}
+  @media (max-width:768px){.hero{padding-top:44px}}
+  .pen-word{position:relative;display:inline-block}
+  .pen-svg{position:absolute;left:2%;bottom:-0.12em;width:96%;height:.28em;overflow:visible}
+  .pen-svg path{
+    stroke:var(--redpen);stroke-width:3;fill:none;stroke-linecap:round;
+    stroke-dasharray:100;stroke-dashoffset:100}
+  .pen-svg.draw path{stroke-dashoffset:0;transition:stroke-dashoffset 600ms ease-out}
+  .meta-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .meta-chips span{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--graphite);
+    border:1px solid var(--hairline);background:var(--card);padding:7px 11px;border-radius:4px}
+
+  /* ---------- margin notes ---------- */
+  .mnote{display:none}
+  @media (min-width:1400px){
+    .mnote{
+      display:block;position:absolute;left:calc(100% + 28px);top:8px;
+      width:clamp(96px,calc(50vw - 598px),170px);
+      font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.5;color:var(--graphite)}
+  }
+
+  /* ---------- tariff cards ---------- */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+  @media (max-width:980px){.tiers{grid-template-columns:1fr}}
+  .card{
+    background:var(--card);border:1px solid var(--hairline);border-radius:4px;
+    padding:28px;display:flex;flex-direction:column;position:relative}
+  .card.featured{border-color:var(--pine);box-shadow:0 0 0 1px var(--pine)}
+  .rec-tag{
+    position:absolute;top:-12px;left:24px;background:var(--pine);color:#fff;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .match-tag{
+    display:none;position:absolute;top:-12px;right:24px;background:var(--card);
+    border:1px solid var(--pine);color:var(--pine);
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .card.match{box-shadow:0 0 0 2px var(--pine)}
+  .card.match .match-tag{display:inline-block}
+  @media (max-width:1100px){
+    .card.featured .match-tag{top:auto;bottom:-12px}
+  }
+  .tier-label{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--pine)}
+  .card h3{margin:10px 0 6px}
+  .tier-sub{font-size:14px;color:var(--graphite);min-height:44px;margin:0}
+  .price-row{display:flex;align-items:baseline;gap:10px;margin:24px 0 2px}
+  .price-row .amount{
+    font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;
+    font-size:clamp(40px,4vw,54px);font-weight:480;color:var(--pine);
+    letter-spacing:-0.01em;font-variant-numeric:tabular-nums;line-height:1}
+  .price-row .unit{font-family:"IBM Plex Mono",monospace;font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+  .tcap{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--graphite);margin:18px 0 6px}
+  .ruler{position:relative;height:30px;margin:2px 0 4px}
+  .ruler::before{content:"";position:absolute;top:0;left:0;right:0;border-top:1px solid var(--hairline)}
+  .ruler .tick{position:absolute;top:0;width:1px;background:var(--hairline)}
+  .ruler .tick.major{background:var(--graphite);opacity:.45}
+  .ruler .rlabel{position:absolute;top:13px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:var(--graphite)}
+  .ruler .rfill{position:absolute;top:-1px;left:0;height:3px;background:var(--pine);
+    width:0;transition:width 700ms ease-out}
+  ul.feat{list-style:none;padding:0;margin:14px 0 20px;flex:1}
+  ul.feat li{
+    padding:9px 0 9px 26px;position:relative;font-size:14.5px;color:var(--graphite);
+    border-top:1px solid var(--hairline)}
+  ul.feat li::before{content:"✓";position:absolute;left:2px;top:9px;color:var(--pine);font-weight:600}
+  ul.feat li.plus-head{font-weight:600;color:var(--ink);padding-left:0}
+  ul.feat li.plus-head::before{content:""}
+  ul.feat li.minus{color:#5F6B63}
+  ul.feat li.minus::before{content:"—";color:#5F6B63;font-weight:400}
+  .support-line{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--graphite);margin:0 0 16px}
+  .btn{
+    display:inline-block;text-align:center;text-decoration:none;border-radius:4px;
+    padding:12px 22px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;
+    transition:background-color 200ms ease-out,border-color 200ms ease-out;cursor:pointer}
+  .btn.solid{background:var(--pine);color:#fff;border:1px solid var(--pine)}
+  .btn.solid:hover{background:var(--pine-dark);border-color:var(--pine-dark)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--hairline)}
+  .btn.ghost:hover{border-color:var(--pine)}
+
+  /* ---------- scope picker ---------- */
+  .picker-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:40px;align-items:start}
+  .needs{grid-column:span 7;border:1px solid var(--hairline);background:var(--card);border-radius:4px}
+  .slip{grid-column:span 5;position:sticky;top:calc(var(--navh) + 24px)}
+  @media (max-width:980px){
+    .needs{grid-column:span 12}
+    .slip{grid-column:span 12;position:static}
+  }
+  .need{
+    display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;
+    border-top:1px solid var(--hairline);font-size:14.5px;color:var(--graphite);
+    transition:background-color 200ms ease-out}
+  .need:first-child{border-top:none}
+  .need:hover{background:var(--sage)}
+  .need input{accent-color:var(--pine);width:16px;height:16px;flex:none;margin:0}
+  .need .sw{width:14px;height:14px;border-radius:2px;flex:none;border:1px solid var(--hairline)}
+  .need .nl{flex:1}
+  .need .ntag{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--graphite);
+    letter-spacing:.08em}
+  .slip-box{
+    background:var(--card);border-top:1px dashed var(--hairline);border-bottom:1px dashed var(--hairline);
+    border-left:1px solid var(--hairline);border-right:1px solid var(--hairline);
+    padding:20px 20px 24px;font-family:"IBM Plex Mono",monospace;
+    box-shadow:0 8px 24px rgba(16,32,26,.07)}
+  .slip-box .slip-head{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--pine);margin:0 0 12px}
+  .slip-items{list-style:none;margin:0;padding:0}
+  .slip-items li{display:flex;align-items:center;gap:8px;font-size:13px;
+    padding:6px 0;border-bottom:1px solid var(--hairline);color:var(--graphite)}
+  .slip-items .sw{width:14px;height:14px;border-radius:2px;flex:none;border:1px solid var(--hairline)}
+  .slip-items .t{margin-left:auto;font-size:11px;color:var(--pine)}
+  .slip-empty{font-size:13px;color:var(--graphite);padding:8px 0 2px;margin:0}
+  .slip-result{margin-top:16px;display:none}
+  .slip-result.show{display:block}
+  .slip-result .cover{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+  .slip-result .tname{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;
+    font-size:26px;color:var(--ink);font-weight:560;margin:6px 0 2px;line-height:1.15}
+  .slip-result .tprice{font-size:22px;color:var(--pine);font-weight:500;
+    font-variant-numeric:tabular-nums}
+  .slip-result .tmeta{font-size:12px;color:var(--graphite);text-transform:uppercase;
+    letter-spacing:.06em;margin:4px 0 0}
+  .slip-result .ainote{font-size:12px;color:var(--redpen);margin:12px 0 0;line-height:1.55}
+  .slip-actions{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+  .slip-actions .view{font-size:13px;text-decoration:none}
+  .slip-actions .view:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+
+  /* ---------- baseline band ---------- */
+  .baseline-band{background:var(--sage)}
+  .base-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  @media (max-width:980px){.base-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.base-grid{grid-template-columns:1fr}}
+  .base-item{background:var(--card);border:1px solid var(--hairline);border-radius:4px;padding:20px}
+  .base-item b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+  .base-item b::before{content:"✓ ";color:var(--pine)}
+  .base-item span{font-size:14px;color:var(--graphite)}
+
+  /* ---------- comparison table ---------- */
+  .tablewrap{margin-top:40px;border:1px solid var(--hairline);background:var(--card)}
+  table.compare{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+  table.compare th{
+    position:sticky;top:var(--navh);z-index:5;background:var(--paper);
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+    text-align:left;padding:14px;border-bottom:1px solid var(--hairline)}
+  table.compare th .thp{display:block;color:var(--graphite);letter-spacing:.04em;margin-top:2px}
+  table.compare th.std .thp{color:var(--pine)}
+  table.compare td{padding:11px 14px;border-bottom:1px solid var(--hairline);
+    vertical-align:top;color:var(--graphite)}
+  table.compare tr:last-child td{border-bottom:none}
+  table.compare th.c,table.compare td.c{text-align:center;width:150px}
+  table.compare .std{background:rgba(222,233,224,.4)}
+  table.compare th.std{background:linear-gradient(rgba(222,233,224,.4),rgba(222,233,224,.4)),var(--paper)}
+  table.compare tbody tr:hover td{background:var(--sage)}
+  .yes,table.compare td.yes{color:var(--pine);font-weight:600}
+  .no,table.compare td.no{color:#5F6B63}
+  tr.tgroup td{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--pine);background:var(--paper);padding:12px 14px 8px}
+  tr.tgroup:hover td{background:var(--paper)}
+  td .sw{display:inline-block;width:14px;height:14px;border-radius:2px;
+    border:1px solid var(--hairline);vertical-align:-2px;margin-right:8px}
+  td.mono-cell{font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    font-variant-numeric:tabular-nums}
+  @media (max-width:760px){
+    .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    table.compare{min-width:720px}
+    table.compare th{position:static}
+  }
+
+  /* ---------- payment ---------- */
+  .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  @media (max-width:640px){.pay-grid{grid-template-columns:1fr}}
+  .pay-item{border:1px solid var(--hairline);background:var(--card);border-radius:4px;padding:24px}
+  .pay-item .pct{
+    font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;
+    font-size:clamp(56px,7vw,96px);font-weight:480;color:var(--pine);line-height:1;
+    font-variant-numeric:tabular-nums}
+  .pay-item .plabel{font-family:"IBM Plex Mono",monospace;font-size:12px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--graphite);margin-top:10px}
+  .pay-item p{font-size:14px;margin:10px 0 0}
+  .paybar{display:flex;gap:4px;height:6px;margin-top:32px}
+  .payseg{background:var(--hairline);position:relative;overflow:hidden}
+  .payseg .pfill{position:absolute;inset:0;background:var(--pine);width:0;
+    transition:width 700ms ease-out}
+  .paybar-labels{display:flex;gap:4px;margin-top:8px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--graphite);
+    text-transform:uppercase;letter-spacing:.06em}
+
+  /* ---------- recommendation ---------- */
+  .rec-cols{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:36px}
+  .rec-cols .colA{grid-column:span 7}
+  .rec-cols .colB{grid-column:span 5}
+  @media (max-width:900px){.rec-cols .colA,.rec-cols .colB{grid-column:span 12}}
+  .rec-points{list-style:none;margin:24px 0 0;padding:0}
+  .rec-points li{border-top:1px solid var(--hairline);padding:14px 0 14px 28px;position:relative;font-size:15px}
+  .rec-points li::before{content:"✓";position:absolute;left:2px;color:var(--pine);font-weight:600}
+  .rec-aside{border:1px solid var(--hairline);background:var(--card);border-radius:4px;padding:24px}
+  .rec-aside .k{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--pine);display:block;margin-bottom:10px}
+  .rec-aside p{font-size:14.5px;margin:0 0 16px}
+
+  /* ---------- scope notes ---------- */
+  .oos{list-style:none;margin:36px 0 0;padding:0;max-width:760px}
+  .oos li{border-top:1px solid var(--hairline);padding:14px 0;font-size:15px;display:flex;gap:14px}
+  .oos li:last-child{border-bottom:1px solid var(--hairline)}
+  .oos .om{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--graphite);
+    flex:none;width:24px;text-align:right}
+  .validity{margin-top:32px;font-family:"IBM Plex Mono",monospace;font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+  .validity b{color:var(--pine);font-weight:500}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--hairline);padding:0 0 56px;margin-top:70px}
+  .foot-ruler{padding:18px 0 8px}
+  .foot-sign{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;
+    font-size:clamp(48px,8vw,108px);color:var(--ink);font-weight:560;line-height:1;margin:24px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .foot-links{grid-column:span 7;display:flex;flex-wrap:wrap;gap:40px}
+  .foot-contact{grid-column:span 5;font-family:"IBM Plex Mono",monospace;font-size:13px;
+    color:var(--graphite);line-height:2}
+  @media (max-width:860px){.foot-links,.foot-contact{grid-column:span 12}}
+  .foot-links div{min-width:100px}
+  .foot-links .fh{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--graphite);margin-bottom:10px}
+  .foot-links a{display:block;color:var(--ink);text-decoration:none;font-size:14px;
+    margin-bottom:8px}
+  .foot-links a:hover{text-decoration:underline;text-decoration-color:var(--pine);
+    text-decoration-thickness:2px;text-underline-offset:3px}
+  .next-issue{margin-top:40px;padding-top:20px;border-top:1px solid var(--hairline);
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--graphite)}
+
+  /* ---------- motion ---------- */
+  .reveal{opacity:0;transform:translateY(12px);
+    transition:opacity 500ms cubic-bezier(0.22,1,0.36,1),transform 500ms cubic-bezier(0.22,1,0.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:80ms}
+  .reveal.d2{transition-delay:160ms}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .ruler .rfill,.payseg .pfill{transition:none}
+    .pen-svg path{stroke-dashoffset:0;transition:none}
+  }
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}.pen-svg path{stroke-dashoffset:0}</style></noscript>
+</head>
+<body>
+
+<!-- 1 · DATELINE MASTHEAD -->
+<div class="masthead">
+  <div class="wrap">
+    <span id="dateline">ISSUED WEDNESDAY 10 JUNE 2026</span>
+    <span class="mid">TASHKENT · ONLINE WORLDWIDE</span>
+    <span class="vol">VOL. 5 — FIVE YEARS OF THE METHOD</span>
+  </div>
+</div>
+
+<!-- 2 · NAV -->
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="landing-v2.html" aria-label="BandUp — home">
+      <span class="monogram" aria-hidden="true">B↑</span>
+      <span class="wordmark">BandUp</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="landing-v2.html#about">About</a>
+      <a href="landing-v2.html#modules">Modules</a>
+      <a href="landing-v2.html#method">Method</a>
+      <a href="landing-v2.html#faculty">Faculty</a>
+      <a href="landing-v2.html#faq">FAQ</a>
+    </div>
+    <div class="navright">
+      <a class="pricing" href="pricing-v2.html" aria-current="page">Project estimate →</a>
+      <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- 3 · HERO / TITLE -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker reveal">Project estimate — IELTS learning platform</span>
+    <h1 class="reveal d1"><span class="pen-word">Tariffs<svg class="pen-svg" viewBox="0 0 220 22" aria-hidden="true" preserveAspectRatio="none"><path pathLength="100" d="M4 13 C 38 18, 74 8, 112 12 S 186 17, 216 10"/></svg></span></h1>
+    <p class="deck reveal d2">One Technical Task. Three build depths. Pick the scope that fits your launch, not the biggest number.</p>
+    <div class="meta-chips reveal d2" role="list">
+      <span role="listitem">Stack: Next.js + Tailwind · Node/Prisma · PostgreSQL</span>
+      <span role="listitem">Payments: Stripe / Click / Payme</span>
+      <span role="listitem">Rate basis: $35/hr blended</span>
+      <span role="listitem">Prices USD · valid 30 days</span>
+    </div>
+    <span class="mnote" aria-hidden="true">↳ rate basis $35/hr blended</span>
+  </div>
+</section>
+
+<!-- 4 · TARIFF CARDS -->
+<section id="tariffs">
+  <div class="wrap">
+    <span class="kicker reveal">Tariffs</span>
+    <h2 class="reveal d1">Three ways to build it.</h2>
+    <p class="deck reveal d2">Each tariff ships complete. The next one adds depth, not patches.</p>
+
+    <div class="tiers">
+
+      <!-- TARIFF 1 -->
+      <article class="card reveal" id="t1" aria-label="Tariff 1 — Starter">
+        <span class="match-tag">Covers your scope</span>
+        <span class="tier-label">Tariff 1 — Starter</span>
+        <h3>Marketing Site</h3>
+        <p class="tier-sub">A public face for the school. Sells the brand, lists every product, captures leads. No payments yet.</p>
+        <div class="price-row">
+          <span class="amount num" data-count="3800" data-prefix="$">$3,800</span>
+          <span class="unit">one-time</span>
+        </div>
+        <p class="tcap">~4 weeks · 1 designer · 1 dev</p>
+        <div class="ruler wruler" data-min="0" data-max="12" data-step="1" data-major="4" data-labels="0,6,12" data-fill="4" data-unit="wk" role="img" aria-label="Timeline: about 4 of 12 weeks"></div>
+        <ul class="feat">
+          <li>Home page — brand, mission, stats, founders, partners, FAQ</li>
+          <li>Products overview page</li>
+          <li>9 product detail pages (7 modules + 2 bundles) — plan, outcome, price, demo teaser</li>
+          <li>Staff page — 3–4 key personnel</li>
+          <li>Business English placeholder — coming soon</li>
+          <li>Lead form to Telegram + email</li>
+          <li>Responsive on mobile, tablet, desktop</li>
+          <li>SEO base + Google Analytics + Meta Pixel</li>
+          <li class="minus">Cart and online payments</li>
+          <li class="minus">Accounts and admin panel</li>
+          <li class="minus">AI features</li>
+        </ul>
+        <p class="support-line">Support: 14 days</p>
+        <a class="btn ghost" href="mailto:info@bandup.uz?subject=Tariff%201%20%E2%80%94%20Starter%20(Marketing%20Site)%20%E2%80%94%20%243%2C800">Choose Starter</a>
+      </article>
+
+      <!-- TARIFF 2 -->
+      <article class="card featured reveal d1" id="t2" aria-label="Tariff 2 — Standard, recommended">
+        <span class="rec-tag">Recommended</span>
+        <span class="match-tag">Covers your scope</span>
+        <span class="tier-label">Tariff 2 — Standard</span>
+        <h3>Full LMS + Storefront</h3>
+        <p class="tier-sub">The complete Technical Task without AI. Accounts, cart, payments, video lessons, admin.</p>
+        <div class="price-row">
+          <span class="amount num" data-count="9200" data-prefix="$">$9,200</span>
+          <span class="unit">one-time</span>
+        </div>
+        <p class="tcap">~8 weeks · 1 designer · 2 devs · 1 QA</p>
+        <div class="ruler wruler" data-min="0" data-max="12" data-step="1" data-major="4" data-labels="0,6,12" data-fill="8" data-unit="wk" role="img" aria-label="Timeline: about 8 of 12 weeks"></div>
+        <ul class="feat">
+          <li class="plus-head">Everything in Starter, plus:</li>
+          <li>Student accounts — email / Google / Telegram</li>
+          <li>Cart with live price calculation + discounts</li>
+          <li>Bundle auto-discount logic</li>
+          <li>Payments — Stripe + Click / Payme</li>
+          <li>Video lesson delivery — S3 signed URLs</li>
+          <li>Per-module progress tracking</li>
+          <li>Mock exam auto-scoring — L + R</li>
+          <li>Admin panel — content, prices, discounts, students, orders</li>
+          <li>Email + Telegram notifications</li>
+          <li class="minus">AI features</li>
+        </ul>
+        <p class="support-line">Support: 1 month</p>
+        <a class="btn solid" href="mailto:info@bandup.uz?subject=Tariff%202%20%E2%80%94%20Standard%20(Full%20LMS%20%2B%20Storefront)%20%E2%80%94%20%249%2C200">Choose Standard</a>
+      </article>
+
+      <!-- TARIFF 3 -->
+      <article class="card reveal d2" id="t3" aria-label="Tariff 3 — Premium">
+        <span class="match-tag">Covers your scope</span>
+        <span class="tier-label">Tariff 3 — Premium</span>
+        <h3>LMS + AI Tutor</h3>
+        <p class="tier-sub">Standard plus the AI module: writing and speaking marked by machine, plans built per student.</p>
+        <div class="price-row">
+          <span class="amount num" data-count="18500" data-prefix="$">$18,500</span>
+          <span class="unit">one-time</span>
+        </div>
+        <p class="tcap">~12 weeks · 1 designer · 3 devs · 1 QA · 1 AI engineer</p>
+        <div class="ruler wruler" data-min="0" data-max="12" data-step="1" data-major="4" data-labels="0,6,12" data-fill="12" data-unit="wk" role="img" aria-label="Timeline: 12 of 12 weeks"></div>
+        <ul class="feat">
+          <li class="plus-head">Everything in Standard, plus:</li>
+          <li>AI Writing grading — Task 1 + 2, band + feedback</li>
+          <li>AI Speaking simulator — voice in, band + transcript</li>
+          <li>AI Vocabulary coach — spaced repetition</li>
+          <li>Personalised study plan generator</li>
+          <li>Mobile PWA</li>
+          <li>Management analytics dashboard</li>
+          <li>Affiliate / referral system</li>
+          <li>Business English unlock-ready</li>
+          <li>3 months post-launch support</li>
+        </ul>
+        <p class="support-line">Support: 3 months</p>
+        <a class="btn ghost" href="mailto:info@bandup.uz?subject=Tariff%203%20%E2%80%94%20Premium%20(LMS%20%2B%20AI%20Tutor)%20%E2%80%94%20%2418%2C500">Choose Premium</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5 · SCOPE PICKER -->
+<section id="scope">
+  <div class="wrap">
+    <span class="kicker reveal">What do you need?</span>
+    <h2 class="reveal d1">Tick what you need.</h2>
+    <p class="deck reveal d2">The slip marks the cheapest tariff that covers every ticked item. No guessing.</p>
+
+    <div class="picker-grid">
+      <div class="needs reveal" id="needsList" role="group" aria-label="Scope needs"></div>
+
+      <aside class="slip reveal d1" aria-label="Scope slip">
+        <div class="slip-box" aria-live="polite">
+          <p class="slip-head">Scope slip</p>
+          <ul class="slip-items" id="slipItems"></ul>
+          <p class="slip-empty" id="slipEmpty">Nothing ticked yet.</p>
+          <div class="slip-result" id="slipResult">
+            <span class="cover" id="slipCover">Cheapest covering tariff</span>
+            <div class="tname" id="slipName"></div>
+            <div class="tprice num" id="slipPrice" aria-hidden="true"></div>
+            <span class="vh" id="slipPriceSr"></span>
+            <p class="tmeta" id="slipMeta"></p>
+            <p class="ainote" id="slipAi" hidden>AI scope is “to be discussed” — book a scoping call before you commit.</p>
+            <div class="slip-actions">
+              <a class="view" id="slipView" href="#t2">View this tariff ↑</a>
+              <a class="btn solid" id="slipMail" href="mailto:info@bandup.uz">Request this scope</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · BASELINE INCLUDED -->
+<section class="baseline-band" id="baseline">
+  <div class="wrap">
+    <span class="kicker reveal">In every tariff</span>
+    <h2 class="reveal d1">The baseline never repeats.</h2>
+    <p class="deck reveal d2">Fundamentals ship once, at any tier. You never re-pay for them later.</p>
+    <div class="base-grid">
+      <div class="base-item reveal"><b>Design system</b><span>Soft educational palette, typography, components — delivered in Figma.</span></div>
+      <div class="base-item reveal d1"><b>Brand integration</b><span>Logo, slogan, mission and motivational quote placed across the site.</span></div>
+      <div class="base-item reveal d2"><b>Partner block</b><span>IDP IELTS, British Council, Cambridge Assessment and peers, linked.</span></div>
+      <div class="base-item reveal"><b>FAQ engine</b><span>Editable Q&amp;A list with schema.org markup for search snippets.</span></div>
+      <div class="base-item reveal d1"><b>Hosting + domain</b><span>Vercel / Cloudflare setup, SSL, DNS and CDN configured.</span></div>
+      <div class="base-item reveal d2"><b>Handover</b><span>Source code, admin training video, 14-day bug-fix warranty.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · COMPARISON TABLE -->
+<section id="compare">
+  <div class="wrap">
+    <span class="kicker reveal">The comparison</span>
+    <h2 class="reveal d1">Feature by feature.</h2>
+    <p class="deck reveal d2">The header stays with you as you scroll. So do the prices.</p>
+    <span class="mnote" aria-hidden="true">↳ prices USD · valid 30 days</span>
+
+    <div class="tablewrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col" class="c">Starter<span class="thp num">$3,800</span></th>
+            <th scope="col" class="c std">Standard<span class="thp num">$9,200</span></th>
+            <th scope="col" class="c">Premium<span class="thp num">$18,500</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Price, one-time</td><td class="c mono-cell">$3,800</td><td class="c mono-cell std">$9,200</td><td class="c mono-cell">$18,500</td></tr>
+          <tr><td>Timeline</td><td class="c mono-cell">~4 weeks</td><td class="c mono-cell std">~8 weeks</td><td class="c mono-cell">~12 weeks</td></tr>
+          <tr><td>Team</td><td class="c mono-cell">1 designer<br>1 dev</td><td class="c mono-cell std">1 designer<br>2 devs · 1 QA</td><td class="c mono-cell">1 designer · 3 devs<br>1 QA · 1 AI engineer</td></tr>
+
+          <tr class="tgroup"><td colspan="4">Foundation</td></tr>
+          <tr><td>Home page — brand, partners, FAQ</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>9 product detail pages with demo teasers</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Staff page — 3–4 key personnel</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Business English placeholder — coming soon</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Lead form to Telegram + email</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Responsive + SEO base + GA + Meta Pixel</td><td class="c yes">✓</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+
+          <tr class="tgroup"><td colspan="4">Commerce + LMS</td></tr>
+          <tr><td>Student accounts — email / Google / Telegram</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Cart with live price calculation + discounts</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Bundle auto-discount logic</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Online payments — Stripe + Click / Payme</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Video lesson delivery — S3 signed URLs</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td><span class="sw" style="background:var(--t-listening)"></span>Per-module progress tracking</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td><span class="sw" style="background:var(--t-mock)"></span>Mock exam auto-scoring — L + R</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Admin panel — content, prices, students, orders</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Email + Telegram notifications</td><td class="c no">—</td><td class="c yes std">✓</td><td class="c yes">✓</td></tr>
+
+          <tr class="tgroup"><td colspan="4">AI module</td></tr>
+          <tr><td><span class="sw" style="background:var(--t-writing)"></span>AI Writing grading — Task 1 + 2, band + feedback</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td><span class="sw" style="background:var(--t-speaking)"></span>AI Speaking simulator — voice in, band + transcript</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td><span class="sw" style="background:var(--t-vocab)"></span>AI Vocabulary coach — spaced repetition</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Personalised study plan generator</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+
+          <tr class="tgroup"><td colspan="4">Growth + delivery</td></tr>
+          <tr><td>Mobile PWA</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Management analytics dashboard</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Affiliate / referral system</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Business English unlock-ready</td><td class="c no">—</td><td class="c no std">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Post-launch support</td><td class="c mono-cell">14 days</td><td class="c mono-cell std">1 month</td><td class="c mono-cell">3 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · PAYMENT SCHEDULE -->
+<section id="payment">
+  <div class="wrap">
+    <span class="kicker reveal">Payment</span>
+    <h2 class="reveal d1">Three payments. Three gates.</h2>
+    <p class="deck reveal d2">You pay when something real is in your hands. Same split on every tariff.</p>
+    <span class="mnote" aria-hidden="true">↳ 40 / 30 / 30 — signing / design / launch</span>
+
+    <div class="pay-grid">
+      <div class="pay-item reveal">
+        <div class="pct num" data-count="40" data-suffix="%">40%</div>
+        <div class="plabel">On signing</div>
+        <p>The contract is signed. The team is booked and the clock starts.</p>
+      </div>
+      <div class="pay-item reveal d1">
+        <div class="pct num" data-count="30" data-suffix="%">30%</div>
+        <div class="plabel">On design sign-off</div>
+        <p>You approve the Figma design system before a line of code ships.</p>
+      </div>
+      <div class="pay-item reveal d2">
+        <div class="pct num" data-count="30" data-suffix="%">30%</div>
+        <div class="plabel">On launch</div>
+        <p>The site is live on your domain. Warranty and support begin.</p>
+      </div>
+    </div>
+
+    <div class="paybar reveal" role="img" aria-label="Payment split: 40 percent signing, 30 percent design sign-off, 30 percent launch">
+      <div class="payseg" style="flex:40"><div class="pfill" data-w="100"></div></div>
+      <div class="payseg" style="flex:30"><div class="pfill" data-w="100"></div></div>
+      <div class="payseg" style="flex:30"><div class="pfill" data-w="100"></div></div>
+    </div>
+    <div class="paybar-labels" aria-hidden="true">
+      <span style="flex:40">Signing · 40</span>
+      <span style="flex:30">Design · 30</span>
+      <span style="flex:30">Launch · 30</span>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · WHY STANDARD -->
+<section id="recommendation">
+  <div class="wrap">
+    <span class="kicker reveal">The recommendation</span>
+    <h2 class="reveal d1">Why Standard.</h2>
+    <span class="mnote" aria-hidden="true">↳ cart + discounts appear at Tariff 2</span>
+
+    <div class="rec-cols">
+      <div class="colA reveal">
+        <p>The Technical Task is explicit. It lists a cart, live price calculation and discounts. Only Tariff 2 crosses that gate. Starter is a fine site, but it cannot sell a module.</p>
+        <ul class="rec-points">
+          <li>Cart, price calculation and discounts — named in the Technical Task, covered only from Standard up.</li>
+          <li>The AI module is marked “to be discussed” in the brief. Premium prices it now; you decide it later.</li>
+          <li>Standard ships the full storefront in ~8 weeks. AI can follow as a phase two, on the same codebase.</li>
+        </ul>
+      </div>
+      <aside class="colB reveal d1">
+        <div class="rec-aside">
+          <span class="k">Not sure about AI?</span>
+          <p>Take Standard. Then sit one scoping call with us. We map the AI module against real student volume and inference costs. If the numbers work, Premium scope is added as phase two — nothing is rebuilt.</p>
+          <a class="btn ghost" href="mailto:info@bandup.uz?subject=Scoping%20call%20%E2%80%94%20AI%20module">Book a scoping call</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · OUT OF SCOPE + VALIDITY -->
+<section id="notes">
+  <div class="wrap">
+    <span class="kicker reveal">Scope notes</span>
+    <h2 class="reveal d1">Outside the estimate.</h2>
+    <p class="deck reveal d2">Priced separately, so the tariff numbers above stay honest.</p>
+
+    <ul class="oos reveal">
+      <li><span class="om">01</span><span>Copywriting in second and third languages.</span></li>
+      <li><span class="om">02</span><span>Video production of demo lessons.</span></li>
+      <li><span class="om">03</span><span>Paid traffic and SMM setup.</span></li>
+      <li><span class="om">04</span><span>Ongoing AI inference costs — pass-through, about $0.02–0.04 per writing grade.</span></li>
+    </ul>
+
+    <p class="validity reveal d1">Prices in <b>USD</b> · issued <b>10 June 2026</b> · estimate valid 30 days — until <b>10 July 2026</b> · rate basis $35/hr blended</p>
+  </div>
+</section>
+
+</main>
+
+<!-- 11 · FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-ruler">
+      <div class="ruler" data-min="0" data-max="9" data-step="0.5" data-major="1" data-labels="0,4.5,9" role="img" aria-label="Band scale from 0 to 9, ornament"></div>
+    </div>
+    <div class="foot-sign">BandUp</div>
+    <div class="foot-grid">
+      <div class="foot-links">
+        <div>
+          <div class="fh">Site</div>
+          <a href="landing-v2.html#about">About</a>
+          <a href="landing-v2.html#modules">Products</a>
+          <a href="pricing-v2.html">Project estimate</a>
+        </div>
+        <div>
+          <div class="fh">School</div>
+          <a href="landing-v2.html#faq">FAQs</a>
+          <a href="landing-v2.html#faculty">Staff</a>
+          <a href="landing-v2.html#method">Method</a>
+        </div>
+        <div>
+          <div class="fh">Estimate</div>
+          <a href="#tariffs">Tariffs</a>
+          <a href="#compare">Comparison</a>
+          <a href="#payment">Payment</a>
+        </div>
+      </div>
+      <div class="foot-contact">
+        <a href="mailto:info@bandup.uz" style="color:var(--graphite);text-decoration:none">info@bandup.uz</a><br>
+        +998 90 123 45 67<br>
+        Tashkent / Online worldwide
+      </div>
+    </div>
+    <div class="next-issue">In the next issue: Business English — coming soon · AI practice partner — in discussion</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* mobile nav disclosure */
+  var navToggle = document.getElementById("navToggle"),
+      navLinks = document.getElementById("navlinks");
+  if(navToggle && navLinks){
+    navToggle.addEventListener("click", function(){
+      var open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    navLinks.addEventListener("click", function(e){
+      if(e.target.tagName === "A"){
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* band / week rulers */
+  function buildRuler(el){
+    var min = parseFloat(el.dataset.min), max = parseFloat(el.dataset.max),
+        step = parseFloat(el.dataset.step), major = parseFloat(el.dataset.major),
+        labels = (el.dataset.labels||"").split(",").filter(Boolean).map(Number),
+        span = max - min;
+    for(var v = min; v <= max + 1e-9; v += step){
+      var pct = (v - min) / span * 100;
+      var t = document.createElement("span");
+      t.className = "tick" + (Math.abs(v / major - Math.round(v / major)) < 1e-9 ? " major" : "");
+      t.style.left = pct + "%";
+      t.style.height = (t.className.indexOf("major") > -1 ? 10 : 6) + "px";
+      el.appendChild(t);
+    }
+    labels.forEach(function(lv){
+      var pct = (lv - min) / span * 100;
+      var l = document.createElement("span");
+      l.className = "rlabel";
+      l.textContent = lv;
+      l.style.left = pct + "%";
+      l.style.transform = pct === 0 ? "none" : (pct === 100 ? "translateX(-100%)" : "translateX(-50%)");
+      el.appendChild(l);
+    });
+    if(el.dataset.fill){
+      var f = document.createElement("span");
+      f.className = "rfill";
+      f.dataset.w = ((parseFloat(el.dataset.fill) - min) / span * 100);
+      el.appendChild(f);
+      if(RM) f.style.width = f.dataset.w + "%";
+    }
+  }
+  document.querySelectorAll(".ruler").forEach(buildRuler);
+
+  /* count-up util */
+  function fmt(v, dec){ return v.toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
+  function countUp(el, to, opts){
+    opts = opts || {};
+    var dec = opts.dec || 0, pre = opts.prefix || "", suf = opts.suffix || "",
+        from = opts.from || 0, dur = opts.dur || 900;
+    if(RM){ el.textContent = pre + fmt(to, dec) + suf; return; }
+    var t0 = null;
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + fmt(from + (to - from) * e, dec) + suf;
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = pre + fmt(to, dec) + suf;
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* one observer drives everything */
+  function settle(el){
+    if(el.classList.contains("reveal")) el.classList.add("in");
+    if(el.classList.contains("pen-svg")) el.classList.add("draw");
+    if(el.classList.contains("rfill") || el.classList.contains("pfill"))
+      el.style.width = el.dataset.w + "%";
+    if(el.dataset.count) countUp(el, parseFloat(el.dataset.count),
+      {prefix: el.dataset.prefix || "", suffix: el.dataset.suffix || "", dec: 0});
+  }
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        settle(en.target);
+        io.unobserve(en.target);
+      });
+    },{threshold:.2});
+    document.querySelectorAll(".reveal, .pen-svg, .rfill, .pfill, [data-count]")
+      .forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal, .pen-svg, .rfill, .pfill, [data-count]")
+      .forEach(settle);
+  }
+
+  /* ---------- scope picker ---------- */
+  var TIERS = {
+    1:{n:"Tariff 1 — Starter", sub:"Marketing Site", p:3800, meta:"~4 weeks · 1 designer · 1 dev", card:"t1"},
+    2:{n:"Tariff 2 — Standard", sub:"Full LMS + Storefront", p:9200, meta:"~8 weeks · 1 designer · 2 devs · 1 QA", card:"t2"},
+    3:{n:"Tariff 3 — Premium", sub:"LMS + AI Tutor", p:18500, meta:"~12 weeks · 1 designer · 3 devs · 1 QA · 1 AI engineer", card:"t3"}
+  };
+  var NEEDS = [
+    {id:"site",  t:1, label:"Marketing site + product pages"},
+    {id:"lead",  t:1, label:"Lead form to Telegram + email"},
+    {id:"acc",   t:2, label:"Student accounts (email / Google / Telegram)"},
+    {id:"cart",  t:2, label:"Cart + live price calculation + discounts"},
+    {id:"pay",   t:2, label:"Online payments (Stripe + Click / Payme)"},
+    {id:"video", t:2, label:"Video lesson delivery"},
+    {id:"prog",  t:2, label:"Per-module progress tracking", sw:"--t-listening"},
+    {id:"mock",  t:2, label:"Mock exam auto-scoring (L + R)", sw:"--t-mock"},
+    {id:"admin", t:2, label:"Admin panel (content / prices / orders)"},
+    {id:"aiw",   t:3, label:"AI Writing grading", sw:"--t-writing", ai:true},
+    {id:"ais",   t:3, label:"AI Speaking simulator", sw:"--t-speaking", ai:true},
+    {id:"aiv",   t:3, label:"AI Vocabulary coach + study plans", sw:"--t-vocab", ai:true},
+    {id:"pwa",   t:3, label:"Mobile PWA"},
+    {id:"ana",   t:3, label:"Management analytics dashboard"},
+    {id:"ref",   t:3, label:"Affiliate / referral system"}
+  ];
+  var KEY = "bandup_scope_v1";
+  var list = document.getElementById("needsList");
+  var saved = [];
+  try{ saved = JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){ saved = []; }
+
+  NEEDS.forEach(function(nd){
+    var lab = document.createElement("label");
+    lab.className = "need";
+    lab.innerHTML =
+      '<input type="checkbox" id="need-' + nd.id + '"' + (saved.indexOf(nd.id) > -1 ? " checked" : "") + '>' +
+      '<span class="sw" style="background:' + (nd.sw ? "var(" + nd.sw + ")" : "var(--paper)") + '" aria-hidden="true"></span>' +
+      '<span class="nl">' + nd.label + '</span>' +
+      '<span class="ntag num">T' + nd.t + '</span>';
+    list.appendChild(lab);
+  });
+
+  var slipItems = document.getElementById("slipItems"),
+      slipEmpty = document.getElementById("slipEmpty"),
+      slipResult = document.getElementById("slipResult"),
+      slipName = document.getElementById("slipName"),
+      slipPrice = document.getElementById("slipPrice"),
+      slipPriceSr = document.getElementById("slipPriceSr"),
+      slipMeta = document.getElementById("slipMeta"),
+      slipAi = document.getElementById("slipAi"),
+      slipView = document.getElementById("slipView"),
+      slipMail = document.getElementById("slipMail"),
+      slipCover = document.getElementById("slipCover"),
+      lastPrice = 0;
+
+  function recompute(){
+    var checked = NEEDS.filter(function(nd){
+      return document.getElementById("need-" + nd.id).checked;
+    });
+    try{ localStorage.setItem(KEY, JSON.stringify(checked.map(function(n){ return n.id; }))); }catch(e){}
+
+    slipItems.innerHTML = "";
+    document.querySelectorAll(".card").forEach(function(c){ c.classList.remove("match"); });
+
+    if(checked.length === 0){
+      slipEmpty.style.display = "block";
+      slipResult.classList.remove("show");
+      lastPrice = 0;
+      return;
+    }
+    slipEmpty.style.display = "none";
+
+    var tier = 1, hasAi = false;
+    checked.forEach(function(nd){
+      if(nd.t > tier) tier = nd.t;
+      if(nd.ai) hasAi = true;
+      var li = document.createElement("li");
+      li.innerHTML =
+        '<span class="sw" style="background:' + (nd.sw ? "var(" + nd.sw + ")" : "var(--paper)") + '" aria-hidden="true"></span>' +
+        '<span>' + nd.label + '</span><span class="t num">T' + nd.t + '</span>';
+      slipItems.appendChild(li);
+    });
+
+    var T = TIERS[tier];
+    slipResult.classList.add("show");
+    slipCover.textContent = "Cheapest covering tariff · " + checked.length +
+      " item" + (checked.length > 1 ? "s" : "") + " ticked";
+    slipName.textContent = T.n + " · " + T.sub;
+    countUp(slipPrice, T.p, {prefix:"$", from:lastPrice, dur:400});
+    slipPriceSr.textContent = "$" + fmt(T.p, 0);
+    lastPrice = T.p;
+    slipMeta.textContent = T.meta;
+    slipAi.hidden = !hasAi;
+    slipView.setAttribute("href", "#" + T.card);
+    document.getElementById(T.card).classList.add("match");
+
+    var body = "Project scope — BandUp IELTS platform\n\nTicked needs:\n" +
+      checked.map(function(nd){ return "- " + nd.label; }).join("\n") +
+      "\n\nCheapest covering tariff: " + T.n + " (" + T.sub + ") — $" +
+      fmt(T.p, 0) + ", " + T.meta;
+    slipMail.setAttribute("href", "mailto:info@bandup.uz" +
+      "?subject=" + encodeURIComponent("Scope request — " + T.n) +
+      "&body=" + encodeURIComponent(body));
+  }
+  list.addEventListener("change", recompute);
+  recompute();
+})();
+</script>
+</body>
+</html>

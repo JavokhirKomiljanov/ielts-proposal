@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BandUp — Your band. Up. | IELTS preparation, Tashkent &amp; online</title>
+<meta name="description" content="Modular IELTS preparation built on five years of the method. Seven modules, two bundles, free 30-minute diagnostic. Average final band 7.6 across 4,800+ students." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:    #FBF9F4;
+  --ink:      #10201A;
+  --graphite: #41524A;
+  --pine:     #175E47;
+  --pine-dark:#114835;
+  --sage:     #DEE9E0;
+  --hairline: #E9E4D8;
+  --card:     #FFFFFF;
+  --redpen:   #C75B39;
+  --redpen-text:#B9532F;
+  --t-listening:#E4EDF2;
+  --t-reading:  #E2EEE7;
+  --t-writing:  #ECE7F0;
+  --t-speaking: #F4E7DE;
+  --t-vocab:    #F3EDD9;
+  --t-grammar:  #F1E3E6;
+  --t-mock:     #ECEBE6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  background:var(--paper);color:var(--graphite);
+  font:400 17px/1.65 Inter,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  display:grid;grid-template-columns:1fr min(1140px,92vw) 1fr;
+  overflow-x:hidden;
+}
+::selection{background:var(--pine);color:#fff}
+a{color:var(--pine);text-decoration:none}
+a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--pine);outline-offset:2px;border-radius:2px;box-shadow:0 0 0 6px rgba(23,94,71,.18)}
+img,svg{display:block}
+
+/* ---------- layout primitives ---------- */
+.full{grid-column:1/-1;display:grid;grid-template-columns:1fr min(1140px,92vw) 1fr;position:relative}
+.full>.wrap{grid-column:2;min-width:0}
+section.full{padding:70px 0;border-top:1px solid var(--hairline)}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+
+/* ---------- type ---------- */
+.serif{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;color:var(--ink)}
+h1.display{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50,"opsz" 144;font-weight:560;
+  font-size:clamp(48px,8vw,108px);line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
+h2{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:560;
+  font-size:clamp(34px,5vw,60px);line-height:1.08;letter-spacing:-.015em;color:var(--ink);margin:14px 0 18px}
+h3{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:500;font-size:28px;color:var(--ink)}
+.kicker{font:500 12px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;color:var(--pine)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.small{font-size:14px}
+.price{font:500 15px 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;padding:12px 22px;border-radius:4px;font:600 15px Inter,sans-serif;
+  cursor:pointer;border:1px solid transparent;transition:background .2s ease-out,border-color .2s ease-out}
+.btn.solid{background:var(--pine);color:#fff}
+.btn.solid:hover{background:var(--pine-dark);text-decoration:none}
+.btn.ghost{background:transparent;border-color:var(--hairline);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--pine);text-decoration:none}
+.arrow{display:inline-block;transition:transform .2s ease-out}
+a:hover .arrow{transform:translateX(2px)}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:1px solid var(--hairline)}
+.masthead .wrap{display:flex;justify-content:space-between;gap:16px;padding:9px 0;
+  font:400 12px/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--graphite);text-transform:uppercase}
+
+/* ---------- nav ---------- */
+nav.top{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--hairline);
+  box-shadow:0 8px 24px rgba(16,32,26,.07)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.monogram{width:32px;height:32px;border:1px solid var(--hairline);border-radius:4px;display:grid;place-items:center;
+  font:500 14px 'IBM Plex Mono',monospace;color:var(--pine)}
+.wordmark{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:560;font-size:21px;letter-spacing:-.01em}
+.navlinks{display:flex;gap:26px;list-style:none}
+.navlinks a{color:var(--ink);font:500 14.5px Inter,sans-serif}
+.navlinks a:hover{text-decoration:underline;text-decoration-color:var(--pine);text-decoration-thickness:2px;text-underline-offset:3px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-right .pricing-link{font:600 15px Inter,sans-serif;padding:10px 8px;margin:-10px -8px}
+.navtoggle{display:none;padding:11px 14px;border:1px solid var(--hairline);border-radius:4px;
+  background:transparent;color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer}
+.navtoggle:hover{border-color:var(--pine)}
+.badge{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--pine);color:#fff;
+  font:500 11px/20px 'IBM Plex Mono',monospace;text-align:center}
+
+/* ---------- margin notes ---------- */
+.mnote{display:none}
+@media (min-width:1380px){
+  .mnote{display:block;grid-column:3;grid-row:1;align-self:start;position:relative;
+    padding-left:16px;width:calc((100vw - min(1140px,92vw))/2 - 28px);min-width:0;
+    font:400 12px/1.5 'IBM Plex Mono',monospace;color:var(--graphite)}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 76px}
+.hero .headline{grid-column:1/-1}
+.penword{position:relative;display:inline-block}
+.penword svg{position:absolute;left:-4%;bottom:-.07em;width:110%;height:.32em;overflow:visible;pointer-events:none}
+.pen path{stroke:var(--redpen);stroke-width:3;vector-effect:non-scaling-stroke;fill:none;
+  stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.pen.drawn path{stroke-dashoffset:0;transition:stroke-dashoffset .6s ease-out}
+.deck{grid-column:1/7;margin-top:34px}
+.deck p{max-width:46ch}
+.deck .mission{font-size:19px;color:var(--graphite)}
+.deck .sub{margin-top:12px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-meta{margin-top:26px;font:400 12px/1.6 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+
+.exhibit{grid-column:8/-1;margin-top:34px;border-top:1px solid var(--hairline);padding-top:18px;align-self:start}
+.exhibit .fig{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+.bignum{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:480;
+  font-size:clamp(56px,7vw,96px);line-height:1;color:var(--pine);
+  font-variant-numeric:tabular-nums;margin:14px 0 6px}
+.exhibit .cap{font:400 12px/1.6 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite);margin-top:14px}
+
+/* ---------- band ruler ---------- */
+.ruler{position:relative;height:38px;margin-top:10px}
+.ruler .track{position:absolute;left:0;right:0;bottom:15px;height:1px;background:var(--hairline)}
+.ruler .tick{position:absolute;bottom:15px;width:1px;height:6px;background:var(--hairline)}
+.ruler .tick.major{height:11px;background:var(--graphite);opacity:.45}
+.ruler .rlabel{position:absolute;bottom:-2px;font:500 11px 'IBM Plex Mono',monospace;color:var(--graphite)}
+.ruler .rlabel.mid{transform:translateX(-50%)}
+.ruler .rlabel.end{transform:translateX(-100%)}
+.ruler .rfill{position:absolute;left:0;bottom:14px;height:3px;background:var(--pine);width:0;transition:width .7s ease-out}
+
+/* ---------- partners ---------- */
+.partners-row{display:flex;flex-wrap:wrap;gap:18px 38px;margin-top:22px}
+.partners-row span{font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--graphite);transition:color .2s ease-out}
+.partners-row span:hover{color:var(--ink)}
+
+/* ---------- stats band ---------- */
+.sageband{background:var(--sage)}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:34px}
+.stat{background:var(--card);border:1px solid var(--hairline);border-radius:4px;padding:24px 18px 20px}
+.stat .n{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:480;
+  font-size:clamp(38px,3.6vw,52px);line-height:1;color:var(--pine);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat .t{margin-top:12px;font:500 11px/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+
+/* ---------- pull quote ---------- */
+.pullquote{padding:96px 0}
+.pullquote .wrap{position:relative}
+.pullquote .mark{position:absolute;top:-38px;left:-10px;font-family:Fraunces,serif;font-size:120px;line-height:1;
+  color:rgba(16,32,26,.12);pointer-events:none}
+.pullquote blockquote{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-style:italic;font-weight:400;
+  font-size:clamp(28px,4vw,44px);line-height:1.3;color:var(--ink);max-width:21em}
+.pullquote .attr{margin-top:20px;font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+
+/* ---------- method ---------- */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:30px 56px;margin-top:40px;counter-reset:step}
+.step{border-top:1px solid var(--hairline);padding-top:18px;cursor:default}
+.step .no{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:var(--pine)}
+.step h3{margin:8px 0 8px;transition:color .2s ease-out}
+.step p{max-width:44ch}
+.step:hover h3{color:var(--pine)}
+.guarantees{margin-top:64px}
+.guarantees .ghead{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:6px}
+.gline{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--hairline);padding:16px 0}
+.gline:last-child{border-bottom:1px solid var(--hairline)}
+.gline .tickmark{color:var(--pine);font-weight:600;flex:none}
+.gline b{color:var(--ink);font-weight:600}
+
+/* ---------- curriculum ---------- */
+.mrow{display:grid;grid-template-columns:14px 200px 1fr auto 20px;gap:18px;align-items:center;
+  border-top:1px solid var(--hairline);padding:18px 10px;color:var(--graphite);
+  transition:background .2s ease-out;border-radius:0}
+a.mrow:hover{background:var(--sage);text-decoration:none}
+.mrow:last-of-type{border-bottom:1px solid var(--hairline)}
+.swatch{width:14px;height:14px;border-radius:2px;flex:none}
+.mrow .mname{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:500;font-size:21px;color:var(--ink)}
+.mrow .mout{font-size:14px}
+.mrow .go{color:var(--pine);transition:transform .2s ease-out}
+a.mrow:hover .go{transform:translateX(2px)}
+.mrow.disabled{opacity:.55}
+.mrow.disabled .mname{color:var(--graphite)}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;border:1px solid var(--hairline);
+  font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+
+/* ---------- achievements ---------- */
+.ach{margin-top:56px}
+.ach .ahead{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.cert{border:1px solid var(--hairline);border-radius:4px;background:var(--card);padding:14px;min-height:150px;position:relative}
+.cert .ct{font:500 9px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+.cert .bar{height:7px;background:var(--hairline);border-radius:1px;margin-top:9px}
+.cert .bar.w60{width:60%}.cert .bar.w80{width:80%}.cert .bar.w45{width:45%}
+.cert .stamp{position:absolute;right:12px;bottom:12px;width:44px;height:44px;border:1px solid var(--hairline);
+  border-radius:50%;display:grid;place-items:center;font:500 11px 'IBM Plex Mono',monospace;color:var(--pine);transform:rotate(-8deg)}
+.cert figcaption{position:absolute;left:14px;bottom:14px;font:500 10px 'IBM Plex Mono',monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+.ach .afoot{margin-top:14px;font:400 12px 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite)}
+
+/* ---------- faculty ---------- */
+.fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
+.fcard{background:var(--card);border:1px solid var(--hairline);border-radius:4px;padding:14px}
+.portrait{position:relative;aspect-ratio:5/4;border-radius:2px;overflow:hidden;
+  background:linear-gradient(168deg,#D9D6CD 0%,#C0BDB4 100%)}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait::after{content:"";position:absolute;inset:0;background:var(--sage);mix-blend-mode:multiply}
+.fcard .bandnum{position:absolute;top:8px;right:12px;z-index:2;font-family:Fraunces,serif;
+  font-variation-settings:"SOFT" 50;font-weight:480;font-size:38px;line-height:1;color:var(--pine);
+  font-variant-numeric:tabular-nums}
+.fcard h3{font-size:22px;margin:14px 0 2px}
+.fcard .role{font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+.fcard .ruler{margin-top:14px}
+
+/* ---------- bundles ---------- */
+.bundles-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:38px}
+.bcard{background:var(--card);border:1px solid var(--hairline);border-radius:4px;padding:30px 28px;position:relative}
+.bcard .btag{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+.bcard h3{font-size:30px;margin:8px 0 4px}
+.bcard .blead{font-size:14px;max-width:38ch}
+.deal{position:relative;display:inline-block;margin:4px 0 0;padding:6px 12px;
+  font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--redpen-text)}
+.deal svg{position:absolute;left:-12px;top:-10px;width:calc(100% + 24px);height:calc(100% + 20px);overflow:visible;pointer-events:none}
+.prow{display:flex;align-items:baseline;gap:14px;margin:18px 0 4px;flex-wrap:wrap}
+.prow .now{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:480;font-size:44px;
+  line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.prow .was{font:500 15px 'IBM Plex Mono',monospace;color:var(--graphite);text-decoration:line-through}
+.prow .save{font:500 15px 'IBM Plex Mono',monospace;color:var(--redpen-text)}
+.bcard ul{list-style:none;margin:18px 0 22px;border-top:1px solid var(--hairline)}
+.bcard li{display:flex;align-items:center;gap:12px;padding:10px 2px;border-bottom:1px solid var(--hairline);font-size:14px}
+.bundle-cta{margin-top:34px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+
+/* ---------- faq ---------- */
+.faq-list{margin-top:36px;border-bottom:1px solid var(--hairline)}
+details{border-top:1px solid var(--hairline)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:20px 2px;font:600 17px Inter,sans-serif;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary .plus{flex:none;font:400 22px/1 'IBM Plex Mono',monospace;color:var(--pine);transition:transform .2s ease-out}
+details[open] summary .plus{transform:rotate(45deg)}
+details .ans{padding:0 2px 22px;max-width:62ch;font-size:15.5px}
+
+/* ---------- cta ---------- */
+.cta-sec .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.cta-sec p{max-width:48ch}
+
+/* ---------- footer ---------- */
+footer.full{border-top:1px solid var(--hairline);padding:56px 0 36px}
+.f-ruler{margin-bottom:44px}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px}
+.f-sign{font-family:Fraunces,serif;font-variation-settings:"SOFT" 50;font-weight:560;letter-spacing:-.02em;
+  font-size:clamp(56px,7vw,96px);line-height:.95;color:var(--ink)}
+footer h4{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:14px}
+footer ul{list-style:none}
+footer li{padding:4px 0;font-size:14.5px}
+footer li a{color:var(--graphite)}
+footer li a:hover{color:var(--ink)}
+.f-next{margin-top:48px;border-top:1px solid var(--hairline);padding-top:18px;
+  font:400 12px/1.7 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ---------- reveal (hidden state only when JS is running — html.js flag) ---------- */
+.js .rv{opacity:0;transform:translateY(12px);
+  transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.stagger>.rv:nth-child(2){transition-delay:80ms}
+.stagger>.rv:nth-child(3){transition-delay:160ms}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .deck{grid-column:1/-1}
+  .exhibit{grid-column:1/9;margin-top:48px}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .ach-grid{grid-template-columns:repeat(2,1fr)}
+  .fac-grid{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  nav.top .wrap{flex-wrap:wrap}
+  .navlinks{display:none;flex-direction:column;gap:0;width:100%;order:4;
+    border-top:1px solid var(--hairline);margin-top:8px;padding:4px 0 8px}
+  .navlinks.open{display:flex}
+  .navlinks a{display:block;padding:11px 2px;font-size:16px}
+  .navtoggle{display:inline-block}
+}
+@media (max-width:768px){
+  section.full{padding:36px 0}
+  .hero{padding:48px 0 44px}
+  .pullquote{padding:56px 0}
+  .steps{grid-template-columns:1fr;gap:22px}
+  .bundles-grid{grid-template-columns:1fr}
+  .mast-center{display:none}
+  .mrow{grid-template-columns:14px 1fr auto 18px;grid-template-areas:"sw name price go" "sw out out out";row-gap:6px}
+  .mrow .swatch{grid-area:sw;align-self:center}
+  .mrow .mname{grid-area:name;font-size:19px}
+  .mrow .mout{grid-area:out}
+  .mrow .price{grid-area:price}
+  .mrow .pill{grid-area:price;justify-self:end}
+  .mrow .go{grid-area:go}
+}
+@media (max-width:560px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(5){grid-column:1/-1}
+  .exhibit{grid-column:1/-1}
+  .fac-grid{grid-template-columns:1fr}
+  .ach-grid{grid-template-columns:1fr 1fr}
+  .f-grid{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .mast-right{display:none}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.js .rv{opacity:1;transform:none}
+  .pen path{stroke-dashoffset:0}
+}
+</style>
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<!-- 1 · DATELINE MASTHEAD -->
+<div class="full masthead" role="banner">
+  <div class="wrap">
+    <span id="mast-date" class="mast-left">Wednesday, 10 June 2026</span>
+    <span class="mast-center">Tashkent · Online worldwide</span>
+    <span class="mast-right">Vol. 5 — Five years of the method</span>
+  </div>
+</div>
+
+<!-- 2 · NAV -->
+<nav class="full top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="landing-v2.html" aria-label="BandUp — home">
+      <span class="monogram" aria-hidden="true">B&#8593;</span>
+      <span class="wordmark">BandUp</span>
+    </a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#faculty">Faculty</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="pricing-link" href="pricing-v2.html">Tariffs <span class="arrow">&#8594;</span></a>
+      <span id="cartBadge" class="badge" hidden aria-label="Items selected on the tariffs page"></span>
+      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 3 · HERO -->
+<header class="full hero" id="about">
+  <div class="wrap grid12">
+    <h1 class="display headline">Your band.
+      <span class="penword">Up.<svg class="pen" viewBox="0 0 240 26" aria-hidden="true" preserveAspectRatio="none"><path pathLength="1" d="M5 16 C 42 7, 80 22, 120 14 C 152 8, 198 19, 235 10"/></svg></span>
+    </h1>
+    <div class="deck stagger">
+      <p class="mission rv">We help IELTS students reach their target band with a clear, step-by-step method — in Tashkent and online worldwide.</p>
+      <p class="sub rv">Pick the modules you need. Sit real mocks. Watch the number move.</p>
+      <div class="hero-ctas rv">
+        <a class="btn solid" href="#modules">Browse modules</a>
+        <a class="btn ghost" href="mailto:info@bandup.uz?subject=Free%2030-minute%20diagnostic">Book the free diagnostic</a>
+      </div>
+      <p class="hero-meta">Free 30-minute diagnostic &middot; All four skills scored</p>
+    </div>
+    <figure class="exhibit" role="img" aria-label="Average final band 7.6 on a 0 to 9 scale">
+      <div class="fig">Fig. 1 — Average final band</div>
+      <div class="bignum" data-count="7.6" data-dec="1">7.6</div>
+      <div class="ruler" data-score="7.6"></div>
+      <figcaption class="cap">Measured across 4,800+ students &middot; 92% reach their target</figcaption>
+    </figure>
+  </div>
+  <aside class="mnote" aria-hidden="true">&#8627; 4.9&#9733; avg rating</aside>
+</header>
+
+<!-- 4 · PARTNERS -->
+<section class="full" aria-label="Recognised alongside">
+  <div class="wrap">
+    <p class="kicker rv">Recognized alongside</p>
+    <div class="partners-row rv">
+      <span>IDP IELTS</span>
+      <span>British Council</span>
+      <span>Cambridge Assessment</span>
+      <span>ETS TOEFL</span>
+      <span>Pearson PTE</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · STATS BAND -->
+<section class="full sageband" aria-label="Statistics">
+  <div class="wrap">
+    <p class="kicker rv">The record</p>
+    <h2 class="rv">Five years, in five numbers.</h2>
+    <div class="stats-grid">
+      <div class="stat rv"><div class="n" data-count="4800" data-comma data-suffix="+">4,800+</div><div class="t">Students prepared</div></div>
+      <div class="stat rv"><div class="n" data-count="7.6" data-dec="1">7.6</div><div class="t">Average final band</div></div>
+      <div class="stat rv"><div class="n" data-count="92" data-suffix="%">92%</div><div class="t">Reach target band</div></div>
+      <div class="stat rv"><div class="n" data-count="5">5</div><div class="t">Years of the method</div></div>
+      <div class="stat rv"><div class="n" data-count="4.9" data-dec="1" data-suffix="&#9733;">4.9&#9733;</div><div class="t">Avg rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · PULL QUOTE -->
+<section class="full pullquote" aria-label="Quote">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <blockquote class="rv">The shortcut to a higher band is not more practice. It is the right practice, at the right time.</blockquote>
+    <p class="attr rv">The method, in one line</p>
+  </div>
+</section>
+
+<!-- 7 · THE METHOD -->
+<section class="full" id="method">
+  <div class="wrap">
+    <p class="kicker rv">The method</p>
+    <h2 class="rv">Diagnose. Focus. Prove.</h2>
+    <p class="rv" style="max-width:52ch">Four numbered steps. No six-month plans, no filler lessons. The cycle repeats until the score lands.</p>
+    <div class="steps">
+      <div class="step rv">
+        <div class="no">01</div>
+        <h3>Diagnose</h3>
+        <p>A free 30-minute diagnostic scores all four skills. You see your weakest sub-band first.</p>
+      </div>
+      <div class="step rv">
+        <div class="no">02</div>
+        <h3>Plan</h3>
+        <p>We build a short plan around your target band. Only the modules you need.</p>
+      </div>
+      <div class="step rv">
+        <div class="no">03</div>
+        <h3>Drill</h3>
+        <p>One exam strategy per lesson, drilled on real past questions.</p>
+      </div>
+      <div class="step rv">
+        <div class="no">04</div>
+        <h3>Mock</h3>
+        <p>You sit the mock. We mark it like Cambridge would. Feedback returns within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="guarantees">
+      <p class="ghead rv">Printed guarantees</p>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Target-band guarantee</b> — 92% reach it. If you do not, retake the module free.</p></div>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Flexible pace</b> — study by module. No fixed schedule; start any week.</p></div>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Real feedback</b> — people mark your Writing and Speaking, returned within 24 hours.</p></div>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Verified teachers</b> — every teacher holds Band 8.0 or above.</p></div>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Real mock conditions</b> — timed, full length, marked like the real exam.</p></div>
+      <div class="gline rv"><span class="tickmark" aria-hidden="true">&#10003;</span><p><b>Money-back in week one</b> — a full refund, no questions.</p></div>
+    </div>
+  </div>
+  <aside class="mnote" aria-hidden="true">&#8627; same rubric IELTS examiners use</aside>
+</section>
+
+<!-- 8 · THE CURRICULUM -->
+<section class="full" id="modules">
+  <div class="wrap">
+    <p class="kicker rv">The curriculum</p>
+    <h2 class="rv">Study only what you need.</h2>
+    <p class="rv" style="max-width:52ch">Seven standalone modules, priced on the page. Bundles below if you need most of them.</p>
+
+    <div style="margin-top:36px">
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Listening%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-listening)" aria-hidden="true"></span>
+        <span class="mname">Listening</span>
+        <span class="mout">Sections 1–4, shadowing drills, full audio bank.</span>
+        <span class="price">$49</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Reading%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-reading)" aria-hidden="true"></span>
+        <span class="mname">Reading</span>
+        <span class="mout">Skim, scan, and a recipe for every question type.</span>
+        <span class="price">$49</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Writing%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-writing)" aria-hidden="true"></span>
+        <span class="mname">Writing</span>
+        <span class="mout">Task 1 and Task 2, marked by people within 24 hours.</span>
+        <span class="price">$69</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Speaking%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-speaking)" aria-hidden="true"></span>
+        <span class="mname">Speaking</span>
+        <span class="mout">Parts 1–3, with one-to-one mock interviews.</span>
+        <span class="price">$69</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Vocabulary%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-vocab)" aria-hidden="true"></span>
+        <span class="mname">Vocabulary</span>
+        <span class="mout">2,500 high-band words, drilled with spaced repetition.</span>
+        <span class="price">$39</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Grammar%20module%20enrolment">
+        <span class="swatch" style="background:var(--t-grammar)" aria-hidden="true"></span>
+        <span class="mname">Grammar</span>
+        <span class="mout">The 20 structures that move your writing band.</span>
+        <span class="price">$39</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <a class="mrow" href="mailto:info@bandup.uz?subject=Mock%20exam%20booking">
+        <span class="swatch" style="background:var(--t-mock)" aria-hidden="true"></span>
+        <span class="mname">Mock exam</span>
+        <span class="mout">Full timed exam, marked within 24 hours.</span>
+        <span class="price">$25/attempt</span>
+        <span class="go" aria-hidden="true">&#8594;</span>
+      </a>
+      <div class="mrow disabled" aria-disabled="true">
+        <span class="swatch" style="background:var(--t-mock);opacity:.6;filter:grayscale(1)" aria-hidden="true"></span>
+        <span class="mname">Business English</span>
+        <span class="mout">Email, meetings, presentations — for work, not exams.</span>
+        <span class="pill">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:28px;padding-top:22px;border-top:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+      <p style="margin:0;max-width:52ch">Not sure which module? Every one opens with a free demo lesson — watch the first lesson in full before you pay.</p>
+      <a class="btn ghost" href="mailto:info@bandup.uz?subject=Free%20demo%20lesson">Watch a demo lesson</a>
+    </div>
+
+    <div class="ach">
+      <p class="ahead rv">Achievements — graduate test report forms</p>
+      <div class="ach-grid">
+        <figure class="cert rv">
+          <div class="ct">IELTS Test Report Form</div>
+          <div class="bar w80"></div><div class="bar w60"></div><div class="bar w45"></div>
+          <div class="stamp" aria-hidden="true">B&#8593;</div>
+          <figcaption>TRF scan 01 — Academic</figcaption>
+        </figure>
+        <figure class="cert rv">
+          <div class="ct">IELTS Test Report Form</div>
+          <div class="bar w60"></div><div class="bar w80"></div><div class="bar w45"></div>
+          <div class="stamp" aria-hidden="true">B&#8593;</div>
+          <figcaption>TRF scan 02 — General</figcaption>
+        </figure>
+        <figure class="cert rv">
+          <div class="ct">IELTS Test Report Form</div>
+          <div class="bar w45"></div><div class="bar w80"></div><div class="bar w60"></div>
+          <div class="stamp" aria-hidden="true">B&#8593;</div>
+          <figcaption>TRF scan 03 — Academic</figcaption>
+        </figure>
+        <figure class="cert rv">
+          <div class="ct">IELTS Test Report Form</div>
+          <div class="bar w80"></div><div class="bar w45"></div><div class="bar w60"></div>
+          <div class="stamp" aria-hidden="true">B&#8593;</div>
+          <figcaption>TRF scan 04 — General</figcaption>
+        </figure>
+      </div>
+      <p class="afoot">Average final band across graduate scans: 7.6</p>
+    </div>
+  </div>
+  <aside class="mnote" aria-hidden="true">&#8627; prices stay on the page — no sales call</aside>
+</section>
+
+<!-- 9 · THE FACULTY -->
+<section class="full" id="faculty">
+  <div class="wrap">
+    <p class="kicker rv">The faculty</p>
+    <h2 class="rv">The people who mark you.</h2>
+    <p class="rv" style="max-width:52ch">Each teacher sat the real exam, scored Band 8.0 or above, and trained on the method before the first lesson.</p>
+    <div class="fac-grid">
+      <article class="fcard rv">
+        <div class="portrait">
+          <svg viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="36" r="17" fill="#8B887F"/><path d="M26 96 C 29 68, 44 59, 60 59 C 76 59, 91 68, 94 96 Z" fill="#8B887F"/></svg>
+          <span class="bandnum">8.5</span>
+        </div>
+        <h3>Sarvar Akhmedov</h3>
+        <p class="role">Founder &middot; Writing</p>
+        <div class="ruler" data-score="8.5" role="img" aria-label="Band 8.5 on a 0 to 9 scale"></div>
+      </article>
+      <article class="fcard rv">
+        <div class="portrait">
+          <svg viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="36" r="17" fill="#85827A"/><path d="M26 96 C 29 68, 44 59, 60 59 C 76 59, 91 68, 94 96 Z" fill="#85827A"/></svg>
+          <span class="bandnum">9.0</span>
+        </div>
+        <h3>Diyora Karimova</h3>
+        <p class="role">Speaking lead</p>
+        <div class="ruler" data-score="9" role="img" aria-label="Band 9.0 on a 0 to 9 scale"></div>
+      </article>
+      <article class="fcard rv">
+        <div class="portrait">
+          <svg viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="36" r="17" fill="#908D84"/><path d="M26 96 C 29 68, 44 59, 60 59 C 76 59, 91 68, 94 96 Z" fill="#908D84"/></svg>
+          <span class="bandnum">8.5</span>
+        </div>
+        <h3>Jasur Tursunov</h3>
+        <p class="role">Reading &amp; Listening</p>
+        <div class="ruler" data-score="8.5" role="img" aria-label="Band 8.5 on a 0 to 9 scale"></div>
+      </article>
+      <article class="fcard rv">
+        <div class="portrait">
+          <svg viewBox="0 0 120 96" aria-hidden="true"><circle cx="60" cy="36" r="17" fill="#89867D"/><path d="M26 96 C 29 68, 44 59, 60 59 C 76 59, 91 68, 94 96 Z" fill="#89867D"/></svg>
+          <span class="bandnum">8.0</span>
+        </div>
+        <h3>Madina Omonova</h3>
+        <p class="role">Grammar &amp; Vocab</p>
+        <div class="ruler" data-score="8" role="img" aria-label="Band 8.0 on a 0 to 9 scale"></div>
+      </article>
+    </div>
+  </div>
+  <aside class="mnote" aria-hidden="true">&#8627; every marker sat the exam themselves</aside>
+</section>
+
+<!-- 10 · BUNDLES -->
+<section class="full sageband" id="bundles">
+  <div class="wrap">
+    <p class="kicker rv">Bundles</p>
+    <h2 class="rv">Two bundles. One clear saving.</h2>
+    <div class="bundles-grid">
+      <article class="bcard rv">
+        <p class="btag">General training route</p>
+        <h3>IELTS General</h3>
+        <p class="blead">All six modules plus mocks — for migration and work routes.</p>
+        <div class="prow">
+          <span class="now">$249</span>
+          <span class="was">$314</span>
+          <span class="save">save $65</span>
+        </div>
+        <ul>
+          <li><span class="swatch" style="background:var(--t-listening)" aria-hidden="true"></span>Listening &middot; Reading &middot; Writing &middot; Speaking</li>
+          <li><span class="swatch" style="background:var(--t-vocab)" aria-hidden="true"></span>Vocabulary + Grammar</li>
+          <li><span class="swatch" style="background:var(--t-mock)" aria-hidden="true"></span>2 mock exams included</li>
+        </ul>
+        <a href="mailto:info@bandup.uz?subject=IELTS%20General%20bundle%20%E2%80%94%20full%20syllabus">Request the full syllabus <span class="arrow">&#8594;</span></a>
+      </article>
+      <article class="bcard rv">
+        <p class="btag">Academic route</p>
+        <h3>IELTS Academic</h3>
+        <p class="blead">Everything in General, plus the Academic writing focus and higher-band drills.</p>
+        <span class="deal">Best deal &minus;25%
+          <svg class="pen" viewBox="0 0 200 64" aria-hidden="true" preserveAspectRatio="none"><path pathLength="1" d="M100 7 C 156 5, 192 17, 191 32 C 190 49, 146 59, 96 58 C 46 57, 9 47, 10 30 C 11 14, 54 6, 128 9"/></svg>
+        </span>
+        <div class="prow">
+          <span class="now">$279</span>
+          <span class="was">$369</span>
+          <span class="save">save $90</span>
+        </div>
+        <ul>
+          <li><span class="swatch" style="background:var(--t-reading)" aria-hidden="true"></span>Everything in the General bundle</li>
+          <li><span class="swatch" style="background:var(--t-writing)" aria-hidden="true"></span>Academic Task 1 — graphs, processes, maps</li>
+          <li><span class="swatch" style="background:var(--t-mock)" aria-hidden="true"></span>3 mock exams + a personal study plan</li>
+        </ul>
+        <a href="mailto:info@bandup.uz?subject=IELTS%20Academic%20bundle%20%E2%80%94%20full%20syllabus">Request the full syllabus <span class="arrow">&#8594;</span></a>
+      </article>
+    </div>
+    <div class="bundle-cta rv">
+      <a class="btn solid" href="#modules">Browse single modules</a>
+      <span class="mono small" style="color:var(--graphite)">Every module and bundle price is printed on this page — no sales call.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · FAQ -->
+<section class="full" id="faq">
+  <div class="wrap">
+    <p class="kicker rv">FAQ</p>
+    <h2 class="rv">Questions, answered plainly.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>How long until I reach my target band?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">Most students who start at 5.5–6.0 need 8–12 weeks. Plan on about six hours a week. Your free diagnostic gives you a personal timeline.</p>
+      </details>
+      <details>
+        <summary>Do I have to buy a bundle?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">No. Pick single modules. Many students only need Writing and Speaking. A bundle only saves money when you need most modules.</p>
+      </details>
+      <details>
+        <summary>Who marks my Writing and Speaking?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">People, always. Every marker holds Band 8.0 or above. Feedback returns within 24 hours, against the same rubric examiners use.</p>
+      </details>
+      <details>
+        <summary>What if I miss my target band?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">You retake the module free. The condition: finish your lessons and sit at least two mocks. 92% reach their target without needing the retake.</p>
+      </details>
+      <details>
+        <summary>Academic or General — which do I need?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">Academic is for universities and professional registration. General is for migration and work routes. Unsure? Ask at the free diagnostic.</p>
+      </details>
+      <details>
+        <summary>Can I pay in instalments?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">Yes. Click, Payme, and Stripe support three-month instalments on bundles. No interest, no hidden fees.</p>
+      </details>
+      <details>
+        <summary>Will there be AI practice?<span class="plus" aria-hidden="true">+</span></summary>
+        <p class="ans">AI practice tools — in discussion for a future issue. Today, people mark every script and every interview. Business English arrives first; it is coming soon.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · FINAL CTA -->
+<section class="full cta-sec" aria-label="Book a diagnostic">
+  <div class="wrap">
+    <p class="kicker rv">The first step</p>
+    <h2 class="rv">Start with a free diagnostic.</h2>
+    <p class="rv">Thirty minutes. All four skills scored. You leave with a band, a plan, and a price.</p>
+    <div class="ctas">
+      <a class="btn solid" href="mailto:info@bandup.uz?subject=Free%2030-minute%20diagnostic">Book the free diagnostic</a>
+      <a class="btn ghost" href="#modules">Browse modules</a>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · FOOTER -->
+<footer class="full">
+  <div class="wrap">
+    <div class="ruler f-ruler" aria-hidden="true"></div>
+    <div class="f-grid">
+      <div>
+        <p class="f-sign">BandUp</p>
+        <p class="small" style="margin-top:16px;max-width:30ch">Your band. Up. Modular IELTS preparation, built on the band descriptors.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#modules">Products</a></li>
+          <li><a href="pricing-v2.html">Tariffs (build estimate)</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#faculty">Staff</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="#modules">Listening</a></li>
+          <li><a href="#modules">Reading</a></li>
+          <li><a href="#modules">Writing</a></li>
+          <li><a href="#modules">Speaking</a></li>
+          <li><a href="#modules">Vocabulary &middot; Grammar</a></li>
+          <li><a href="#modules">Mock exam</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@bandup.uz">info@bandup.uz</a></li>
+          <li><a href="tel:+998901234567">+998 90 123 45 67</a></li>
+          <li>Tashkent / Online worldwide</li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-next">
+      <span>In the next issue: Business English — coming soon &middot; AI practice partner — in discussion</span>
+      <span>&copy; 2026 BandUp &middot; The Band Review</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- masthead live date ---- */
+  var d = document.getElementById("mast-date");
+  if (d) d.textContent = new Date().toLocaleDateString("en-GB",
+    {weekday:"long", day:"numeric", month:"long", year:"numeric"}).toUpperCase();
+
+  /* ---- nav badge ("bandup_scope_v1": array of item ids written by pricing-v2.html) ---- */
+  function cartCount(){
+    var c;
+    try { c = JSON.parse(localStorage.getItem("bandup_scope_v1") || "null"); } catch(e){ return 0; }
+    return Array.isArray(c) ? c.length : 0;
+  }
+  function refreshBadge(){
+    var b = document.getElementById("cartBadge"), n = cartCount();
+    if (!b) return;
+    if (n > 0){ b.hidden = false; b.textContent = n; } else { b.hidden = true; }
+  }
+  window.addEventListener("storage", refreshBadge);
+  window.addEventListener("pageshow", refreshBadge);
+  refreshBadge();
+
+  /* ---- mobile nav disclosure ---- */
+  var navToggle = document.querySelector(".navtoggle"),
+      navList   = document.getElementById("navlinks");
+  if (navToggle && navList){
+    navToggle.addEventListener("click", function(){
+      var open = navList.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    navList.addEventListener("click", function(e){
+      var t = e.target;
+      while (t && t !== navList && t.tagName !== "A") t = t.parentNode;
+      if (t && t.tagName === "A"){
+        navList.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---- band ruler builder (ticks every 0.5, taller at integers) ---- */
+  function buildRuler(el){
+    var track = document.createElement("span");
+    track.className = "track";
+    el.appendChild(track);
+    for (var i = 0; i <= 18; i++){
+      var v = i / 2, t = document.createElement("span");
+      t.className = "tick" + (v % 1 === 0 ? " major" : "");
+      t.style.left = (v / 9 * 100) + "%";
+      el.appendChild(t);
+    }
+    [["0", 0, ""], ["4.5", 50, "mid"], ["9", 100, "end"]].forEach(function(L){
+      var l = document.createElement("span");
+      l.className = "rlabel " + L[2];
+      l.style.left = L[1] + "%";
+      l.textContent = L[0];
+      el.appendChild(l);
+    });
+    if (el.dataset.score){
+      var f = document.createElement("span");
+      f.className = "rfill";
+      el.appendChild(f);
+    }
+  }
+  var rulers = [].slice.call(document.querySelectorAll(".ruler"));
+  rulers.forEach(buildRuler);
+
+  function fillRuler(el){
+    var f = el.querySelector(".rfill");
+    if (f) f.style.width = (parseFloat(el.dataset.score) / 9 * 100) + "%";
+  }
+
+  /* ---- count-up util (rAF, 900ms, ease-out cubic, tabular-nums) ---- */
+  function fmt(v, dec, comma, suffix){
+    var s = dec ? v.toFixed(dec) : Math.round(v).toString();
+    if (comma) s = Number(s).toLocaleString("en-US",
+      {minimumFractionDigits: dec, maximumFractionDigits: dec});
+    return s + suffix;
+  }
+  function runCount(el){
+    var target = parseFloat(el.dataset.count),
+        dec    = +(el.dataset.dec || 0),
+        comma  = el.dataset.comma !== undefined,
+        suffix = el.dataset.suffix || "",
+        start  = null, DUR = 900;
+    function frame(ts){
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / DUR, 1),
+          e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * e, dec, comma, suffix);
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = fmt(target, dec, comma, suffix);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---- one IntersectionObserver drives everything, fires once ---- */
+  function activate(el){
+    if (el.classList.contains("rv")) el.classList.add("in");
+    if (el.dataset.count !== undefined) runCount(el);
+    if (el.classList.contains("ruler")) fillRuler(el);
+    if (el.classList.contains("pen")) el.classList.add("drawn");
+  }
+  var targets = [].slice.call(document.querySelectorAll(".rv, [data-count], .ruler[data-score], .pen"));
+  if (RM || !("IntersectionObserver" in window)){
+    targets.forEach(function(el){
+      if (el.classList.contains("rv")) el.classList.add("in");
+      if (el.classList.contains("ruler")) fillRuler(el);
+      if (el.classList.contains("pen")) el.classList.add("drawn");
+      /* counters keep their final values already present in markup */
+    });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        activate(e.target);
+      });
+    }, {threshold: 0.2});
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- FAQ accordion: sync aria-expanded on summaries ---- */
+  [].slice.call(document.querySelectorAll("details")).forEach(function(dt){
+    var s = dt.querySelector("summary");
+    if (!s) return;
+    function sync(){ s.setAttribute("aria-expanded", dt.open ? "true" : "false"); }
+    dt.addEventListener("toggle", sync);
+    sync();
+  });
+})();
+</script>
+
+</body>
+</html>

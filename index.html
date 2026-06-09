@@ -3,53 +3,74 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>IELTS Platform — Proposal</title>
+<title>IELTS Platform — Proposal (v1 vs v2)</title>
+<meta name="description" content="BandUp IELTS platform proposal: landing page mockup and project tariffs, in two design versions." />
 <style>
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:#F7F9FC;color:#1B2A41;
+  html,body{margin:0;padding:0;background:#F7F6F1;color:#1E2520;
     font-family:-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh;
-    display:grid;place-items:center}
-  .wrap{max-width:780px;padding:48px 24px;text-align:center}
+    -webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh}
+  .wrap{max-width:920px;margin:0 auto;padding:64px 24px 80px;text-align:center}
   .mark{width:64px;height:64px;border-radius:18px;
-    background:linear-gradient(135deg,#3E7CFF,#8A6BFF);
+    background:linear-gradient(135deg,#2E5E4E,#3E7CFF);
     display:grid;place-items:center;color:#fff;font-weight:800;font-size:26px;margin:0 auto 24px}
-  h1{font-size:36px;letter-spacing:-.01em;margin:0 0 10px;font-weight:800}
-  p.lede{color:#5B6B85;font-size:17px;max-width:560px;margin:0 auto 36px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:680px;margin:0 auto}
+  h1{font-size:34px;letter-spacing:-.01em;margin:0 0 10px;font-weight:800}
+  p.lede{color:#5C685F;font-size:16.5px;max-width:600px;margin:0 auto 44px}
+  h2.vh{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#5C685F;
+    margin:0 0 16px;display:flex;align-items:center;gap:14px}
+  h2.vh::after{content:"";flex:1;height:1px;background:#DDD9CC}
+  h2.vh .tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.06em}
+  h2.vh .tag.v1{background:#E8ECF3;color:#5B6B85}
+  h2.vh .tag.v2{background:#2E5E4E;color:#fff}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;text-align:left}
   @media (max-width:640px){.cards{grid-template-columns:1fr}}
-  a.card{display:block;background:#fff;border:1px solid #E4E9F2;border-radius:18px;padding:28px;
-    text-decoration:none;color:inherit;transition:transform .15s, box-shadow .15s;text-align:left}
-  a.card:hover{transform:translateY(-3px);box-shadow:0 20px 50px -32px rgba(27,42,65,.3)}
-  .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:14px}
-  .ico.l{background:#E9F0FF;color:#3E7CFF}
-  .ico.p{background:#E3F7F1;color:#1F8E73}
-  h3{margin:0 0 6px;font-size:19px}
-  .sub{color:#5B6B85;font-size:14px}
-  .arrow{margin-top:14px;font-weight:600;color:#3E7CFF;font-size:14px}
-  footer{margin-top:36px;color:#94A0B7;font-size:13px}
+  a.card{display:block;background:#fff;border:1px solid #E2DFD4;border-radius:16px;padding:24px;
+    text-decoration:none;color:inherit;transition:transform .15s, box-shadow .15s}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 20px 50px -32px rgba(30,37,32,.3)}
+  a.card.v2{border-color:#2E5E4E33;background:#FDFCF8}
+  h3{margin:0 0 6px;font-size:18px}
+  .sub{color:#5C685F;font-size:13.5px}
+  .arrow{margin-top:14px;font-weight:600;color:#2E5E4E;font-size:14px}
+  .note{color:#8A917F;font-size:13px;max-width:560px;margin:0 auto}
+  footer{margin-top:40px;color:#A6AC9B;font-size:12.5px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="mark">B↑</div>
   <h1>IELTS Platform · Proposal</h1>
-  <p class="lede">Two documents prepared from your Technical Task — a working landing page mockup and three project tariffs you can compare side by side.</p>
+  <p class="lede">Landing page mockup and project tariffs, prepared from your Technical Task — in two design versions. v2 is the recommended one to share.</p>
+
+  <h2 class="vh"><span class="tag v2">Version 2 · New</span></h2>
   <div class="cards">
-    <a class="card" href="landing.html">
-      <div class="ico l">🎓</div>
-      <h3>Landing page mockup</h3>
-      <div class="sub">Soft educational design covering every block from the brief: hero, methodology, products, founders, partners, FAQ.</div>
-      <div class="arrow">Open mockup →</div>
+    <a class="card v2" href="landing-v2.html">
+      <h3>Landing page — v2</h3>
+      <div class="sub">Editorial "Band Review" design: warm paper, broadsheet typography, animated band-score hero, module tint system, demo-lesson teasers.</div>
+      <div class="arrow">Open landing v2 →</div>
     </a>
-    <a class="card" href="pricing.html">
-      <div class="ico p">💰</div>
-      <h3>Project tariffs</h3>
-      <div class="sub">Three options — Starter ($3.8K), Standard ($9.2K, recommended), Premium ($18.5K with AI module). Full feature comparison.</div>
-      <div class="arrow">Open tariffs →</div>
+    <a class="card v2" href="pricing-v2.html">
+      <h3>Project tariffs — v2</h3>
+      <div class="sub">Same three tariffs ($3,800 / $9,200 / $18,500) with an interactive scope picker: tick what you need, it highlights the right tier.</div>
+      <div class="arrow">Open tariffs v2 →</div>
     </a>
   </div>
-  <footer>Prepared 2026-06-09 · valid 30 days</footer>
+
+  <h2 class="vh"><span class="tag v1">Version 1</span></h2>
+  <div class="cards">
+    <a class="card" href="landing.html">
+      <h3>Landing page — v1</h3>
+      <div class="sub">First draft: soft blue/violet SaaS style covering every block from the brief.</div>
+      <div class="arrow">Open landing v1 →</div>
+    </a>
+    <a class="card" href="pricing.html">
+      <h3>Project tariffs — v1</h3>
+      <div class="sub">First draft: three tariff cards with a static feature-comparison table.</div>
+      <div class="arrow">Open tariffs v1 →</div>
+    </a>
+  </div>
+
+  <p class="note">Both versions carry identical prices, scope, and placeholder data — only the design and interactivity differ.</p>
+  <footer>Prepared 10 June 2026 · prices in USD · valid 30 days</footer>
 </div>
 </body>
 </html>
