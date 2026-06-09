@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BandUp — IELTS made simple. Score made high.</title>
+<style>
+  :root{
+    --bg:#FBFAF7;
+    --ink:#1A2A3A;
+    --muted:#5E6E82;
+    --line:#E8ECF3;
+    --card:#FFFFFF;
+    --brand:#3E7CFF;
+    --brand-soft:#E9F0FF;
+    --mint:#3CC9A5;
+    --mint-soft:#E2F6F0;
+    --peach:#FFB088;
+    --peach-soft:#FFEEE3;
+    --violet:#8A6BFF;
+    --violet-soft:#EFEAFF;
+    --amber:#F7B500;
+    --amber-soft:#FFF4D6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .logo-mark{width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,#3E7CFF 0%,#8A6BFF 100%);
+    display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px}
+  nav ul{display:flex;gap:26px;list-style:none;padding:0;margin:0;font-size:14.5px;color:var(--muted)}
+  nav ul a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.brand{background:var(--ink);color:#fff}
+  .btn.brand:hover{background:#0E1A2A}
+  .btn.big{padding:14px 22px;font-size:15px;border-radius:12px}
+
+  /* HERO */
+  .hero{padding:64px 0 32px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--brand-soft);color:var(--brand);
+    font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+  h1.hero-h{font-size:54px;line-height:1.05;letter-spacing:-.02em;margin:18px 0 14px;font-weight:800}
+  h1.hero-h span{background:linear-gradient(120deg,#3E7CFF,#8A6BFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:520px}
+  .quote{margin-top:22px;padding:14px 18px;border-left:3px solid var(--mint);background:var(--mint-soft);
+    border-radius:0 12px 12px 0;color:#1F6E5A;font-style:italic;max-width:520px}
+  .hero-cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .hero-trust{display:flex;gap:18px;margin-top:24px;color:var(--muted);font-size:13.5px;flex-wrap:wrap}
+  .hero-trust b{color:var(--ink);font-weight:700}
+
+  /* Hero card */
+  .hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;
+    box-shadow:0 30px 80px -40px rgba(27,42,65,.25);position:relative}
+  .hero-card .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .pill{display:inline-block;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600}
+  .pill.b{background:var(--brand-soft);color:var(--brand)}
+  .band-card{background:linear-gradient(135deg,#3E7CFF 0%,#8A6BFF 100%);color:#fff;border-radius:18px;padding:22px;margin-bottom:16px}
+  .band-card .label{font-size:13px;opacity:.85}
+  .band-card .num{font-size:48px;font-weight:800;letter-spacing:-.02em;margin:4px 0}
+  .band-card .sub{font-size:13px;opacity:.92}
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .skill{background:#F7F9FE;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .skill .k{color:var(--muted);font-size:12px}
+  .skill .v{font-weight:700;font-size:20px;margin-top:2px}
+  .skill .bar{margin-top:8px;height:5px;background:#E8ECF3;border-radius:999px;overflow:hidden}
+  .skill .bar i{display:block;height:100%;background:linear-gradient(90deg,#3E7CFF,#3CC9A5);border-radius:999px}
+
+  /* Floating decor */
+  .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;z-index:-1}
+  .blob.a{width:280px;height:280px;background:#CFE0FF;top:-50px;left:-80px}
+  .blob.b{width:260px;height:260px;background:#FFE3D2;bottom:-80px;right:-60px}
+
+  /* GUARANTEES BAR */
+  .guarantee-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:36px 0 0}
+  @media (max-width:780px){.guarantee-bar{grid-template-columns:1fr 1fr}}
+  .gtile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+  .gico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+  .gico.m{background:var(--mint-soft);color:var(--mint)}
+  .gico.b{background:var(--brand-soft);color:var(--brand)}
+  .gico.p{background:var(--peach-soft);color:#D8743C}
+  .gico.v{background:var(--violet-soft);color:var(--violet)}
+  .gtile b{display:block;font-size:14px}
+  .gtile span{color:var(--muted);font-size:13px}
+  .gtile svg{width:18px;height:18px}
+
+  /* SECTION TITLES */
+  section{padding:72px 0}
+  .sec-eye{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+  h2.sec-h{font-size:34px;letter-spacing:-.015em;margin:6px 0 12px;font-weight:800;line-height:1.15}
+  .sec-sub{color:var(--muted);max-width:680px;font-size:16.5px;margin:0 0 36px}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media (max-width:780px){.stats{grid-template-columns:1fr 1fr}}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;text-align:left}
+  .stat .n{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .stat .n span{background:linear-gradient(120deg,#3E7CFF,#3CC9A5);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .t{color:var(--muted);font-size:14px;margin-top:6px}
+
+  /* PRODUCTS */
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media (max-width:980px){.prod-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:540px){.prod-grid{grid-template-columns:1fr}}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .15s, box-shadow .15s;cursor:pointer}
+  .prod:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(27,42,65,.25)}
+  .prod .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;font-size:20px}
+  .prod h4{margin:0 0 6px;font-size:17px}
+  .prod p{margin:0;color:var(--muted);font-size:13.5px;min-height:38px}
+  .prod .price{margin-top:14px;font-weight:700;font-size:15px}
+  .prod .price s{color:#AAB4C4;font-weight:500;margin-right:6px;font-size:13px}
+
+  .bundle-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  @media (max-width:780px){.bundle-row{grid-template-columns:1fr}}
+  .bundle{background:linear-gradient(135deg,#F3F6FF 0%,#FFFFFF 60%);border:1.5px solid #DDE6FF;border-radius:18px;padding:24px;position:relative}
+  .bundle.gen{background:linear-gradient(135deg,#FFF6E8 0%,#FFFFFF 60%);border-color:#F4DFA9}
+  .bundle .save{position:absolute;top:18px;right:18px;background:var(--mint);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.05em}
+  .bundle h3{margin:0 0 6px;font-size:22px}
+  .bundle p{margin:0 0 16px;color:var(--muted);font-size:14px}
+  .bundle .row{display:flex;align-items:baseline;gap:10px}
+  .bundle .now{font-size:30px;font-weight:800;letter-spacing:-.01em}
+  .bundle .was{color:#9AA4B7;text-decoration:line-through}
+  .bundle ul{padding-left:18px;color:#3A4A60;font-size:14px;margin:14px 0 0}
+
+  /* METHODOLOGY */
+  .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:840px){.method-grid{grid-template-columns:1fr}}
+  .mcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+  .mcard .step{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.05em}
+  .mcard h4{margin:6px 0 8px;font-size:18px}
+  .mcard p{margin:0;color:var(--muted);font-size:14.5px}
+
+  /* FOUNDER */
+  .founders{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px}
+  @media (max-width:840px){.founders{grid-template-columns:1fr;padding:24px}}
+  .av-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .av{background:linear-gradient(135deg,#E9F0FF,#EFEAFF);border-radius:16px;padding:18px;text-align:center}
+  .av .photo{width:74px;height:74px;margin:0 auto 10px;border-radius:50%;background:linear-gradient(135deg,#3E7CFF,#8A6BFF);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:700}
+  .av b{font-size:14.5px}
+  .av span{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+  .av .band{display:inline-block;margin-top:8px;font-size:11px;background:#fff;padding:3px 8px;border-radius:6px;color:var(--brand);font-weight:700}
+
+  /* PARTNERS */
+  .partners{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px}
+  .plogo{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 22px;font-weight:600;color:#4A5A72;font-size:14.5px}
+
+  /* FAQ */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:780px){.faq{grid-template-columns:1fr}}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px}
+  summary{padding:16px 0;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+  summary::after{content:"+";color:var(--brand);font-size:22px;font-weight:300}
+  details[open] summary::after{content:"−"}
+  details p{padding:0 0 16px;color:var(--muted);font-size:14.5px;margin:0}
+
+  /* CTA STRIP */
+  .cta-strip{margin:60px 0 0;background:linear-gradient(135deg,#1A2A3A 0%,#2B3F58 100%);color:#fff;border-radius:24px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .cta-strip h3{margin:0;font-size:26px;letter-spacing:-.01em}
+  .cta-strip p{margin:6px 0 0;color:#B7C2D4;font-size:15px}
+  .cta-strip .btn{padding:14px 22px;background:#fff;color:#1A2A3A}
+
+  /* FOOTER */
+  footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;margin-top:60px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+  @media (max-width:780px){.foot-grid{grid-template-columns:1fr 1fr}}
+  footer h5{color:var(--ink);font-size:14px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.05em}
+  footer ul{list-style:none;padding:0;margin:0}
+  footer li{padding:4px 0}
+  footer .copy{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">B↑</span>
+      BandUp
+    </a>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#method">Methodology</a></li>
+      <li><a href="#founders">Teachers</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#">Pricing</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#" class="btn ghost">Log in</a>
+      <a href="#" class="btn brand">Start free demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Trusted IELTS prep · Band 7+ guarantee</span>
+      <h1 class="hero-h">IELTS made simple.<br><span>Score made high.</span></h1>
+      <p class="lead">Bite-sized lessons, real exam practice, and teachers with verified 8.0+ band scores. Pick the modules you need — pay only for what you study.</p>
+      <div class="quote">“The shortcut to a higher band isn't more practice. It's the <b>right</b> practice, at the <b>right</b> time.” — Our mission.</div>
+      <div class="hero-cta">
+        <a href="#products" class="btn brand big">Explore products →</a>
+        <a href="#" class="btn ghost big">▶ Watch demo lesson</a>
+      </div>
+      <div class="hero-trust">
+        <span><b>4,800+</b> students prepared</span>
+        <span><b>92%</b> reach target band</span>
+        <span><b>4.9 ★</b> avg rating</span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="top-row">
+        <span class="pill b">Live mock score</span>
+        <span style="color:var(--muted);font-size:12px">Updated today</span>
+      </div>
+      <div class="band-card">
+        <div class="label">Overall Band Score</div>
+        <div class="num">7.5</div>
+        <div class="sub">↑ 0.5 from last week · Top 18% of cohort</div>
+      </div>
+      <div class="skills">
+        <div class="skill"><div class="k">Listening</div><div class="v">8.0</div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="skill"><div class="k">Reading</div><div class="v">7.5</div><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill"><div class="k">Writing</div><div class="v">7.0</div><div class="bar"><i style="width:72%"></i></div></div>
+        <div class="skill"><div class="k">Speaking</div><div class="v">7.5</div><div class="bar"><i style="width:80%"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUARANTEES -->
+  <div class="container">
+    <div class="guarantee-bar">
+      <div class="gtile">
+        <div class="gico m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><b>Band guarantee</b><span>Reach Band 7+ or study again — free.</span></div>
+      </div>
+      <div class="gtile">
+        <div class="gico b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div><b>Flexible pace</b><span>Study by module — no fixed schedule.</span></div>
+      </div>
+      <div class="gtile">
+        <div class="gico p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h7.5"/><path d="M15 3l6 6-9 9H6v-6l9-9z"/></svg></div>
+        <div><b>Real feedback</b><span>Writing & Speaking graded by humans.</span></div>
+      </div>
+      <div class="gtile">
+        <div class="gico v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 10-16 0"/></svg></div>
+        <div><b>Verified teachers</b><span>Every coach holds 8.0+ band.</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section style="padding-top:40px">
+  <div class="container">
+    <span class="sec-eye">By the numbers</span>
+    <h2 class="sec-h">Results that speak</h2>
+    <p class="sec-sub">Built on five years of IELTS preparation, refined through 4,800+ student journeys.</p>
+    <div class="stats">
+      <div class="stat"><div class="n"><span>4,800+</span></div><div class="t">Students prepared</div></div>
+      <div class="stat"><div class="n"><span>7.6</span></div><div class="t">Average final band</div></div>
+      <div class="stat"><div class="n"><span>92%</span></div><div class="t">Reach target band</div></div>
+      <div class="stat"><div class="n"><span>5 yrs</span></div><div class="t">Refining the method</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="method" style="background:#F3F5FA">
+  <div class="container">
+    <span class="sec-eye">Methodology</span>
+    <h2 class="sec-h">Three steps. One band higher.</h2>
+    <p class="sec-sub">No fluff. No 6-month plans. A diagnostic, a focused study path, and weekly mock exams until the score lands.</p>
+    <div class="method-grid">
+      <div class="mcard"><div class="step">STEP 01</div><h4>Diagnose</h4><p>Free 30-minute placement test scores all four skills + identifies the weakest sub-band. You see exactly where to invest.</p></div>
+      <div class="mcard"><div class="step">STEP 02</div><h4>Focus</h4><p>Pick only the modules you need. Each lesson teaches one exam strategy, then drills it on real Cambridge questions.</p></div>
+      <div class="mcard"><div class="step">STEP 03</div><h4>Prove</h4><p>Weekly full mock exam under timed conditions. Writing & Speaking get human feedback within 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <span class="sec-eye">Products</span>
+    <h2 class="sec-h">Build the course you actually need</h2>
+    <p class="sec-sub">Eight standalone modules plus two complete bundles. Add to cart, pay once, study at your own pace.</p>
+
+    <div class="prod-grid">
+      <div class="prod">
+        <div class="ico" style="background:var(--brand-soft);color:var(--brand)">🎧</div>
+        <h4>Listening</h4>
+        <p>Sections 1–4 with shadowing drills and Cambridge audio bank.</p>
+        <div class="price">$49</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:var(--mint-soft);color:var(--mint)">📖</div>
+        <h4>Reading</h4>
+        <p>Skim-scan + question-type recipes for Academic & General.</p>
+        <div class="price">$49</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:var(--peach-soft);color:#D8743C)">✍️</div>
+        <h4>Writing</h4>
+        <p>Task 1 & Task 2 with band-rubric breakdowns + human grading.</p>
+        <div class="price">$69</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:var(--violet-soft);color:var(--violet)">🎤</div>
+        <h4>Speaking</h4>
+        <p>Parts 1/2/3 with 100+ prompt bank and 1-on-1 mock sessions.</p>
+        <div class="price">$69</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:var(--amber-soft);color:#9C7400">📚</div>
+        <h4>Vocabulary</h4>
+        <p>2,500 high-band words by topic with spaced-repetition drills.</p>
+        <div class="price">$39</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:#E5F3FF;color:#1E78D8">🧩</div>
+        <h4>Grammar</h4>
+        <p>The 20 grammar structures that actually move your writing band.</p>
+        <div class="price">$39</div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:#FFE9F0;color:#D14C76">🎯</div>
+        <h4>Mock exam</h4>
+        <p>Full 2h45m exam under timed conditions, scored within 24h.</p>
+        <div class="price">$25 <span style="color:var(--muted);font-weight:400;font-size:13px">/ attempt</span></div>
+      </div>
+      <div class="prod">
+        <div class="ico" style="background:#EAF7F0;color:#1F8E73">💼</div>
+        <h4>Business English <span style="font-size:11px;color:var(--muted);font-weight:500">(soon)</span></h4>
+        <p>Email, meetings, presentations — for work, not exams.</p>
+        <div class="price" style="color:var(--muted)">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="bundle-row">
+      <div class="bundle gen">
+        <h3>IELTS General Bundle</h3>
+        <p>All 6 skills + Mock exam — for migration & work routes.</p>
+        <div class="row"><span class="now">$249</span><span class="was">$314</span><span class="pill" style="background:var(--amber-soft);color:#A86B00">Save $65</span></div>
+        <ul>
+          <li>Listening · Reading · Writing · Speaking</li>
+          <li>Vocabulary + Grammar</li>
+          <li>2 Mock exams included</li>
+        </ul>
+      </div>
+      <div class="bundle">
+        <span class="save">−25% Best deal</span>
+        <h3>IELTS Academic Bundle</h3>
+        <p>Everything in General + Academic writing focus & higher-band drills.</p>
+        <div class="row"><span class="now">$279</span><span class="was">$369</span><span class="pill" style="background:var(--brand-soft);color:var(--brand)">Save $90</span></div>
+        <ul>
+          <li>Everything in General Bundle</li>
+          <li>Academic Task 1 (graphs, processes, maps)</li>
+          <li>3 Mock exams + personal study plan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders" style="background:#F3F5FA">
+  <div class="container">
+    <span class="sec-eye">Our teachers</span>
+    <h2 class="sec-h">Coached by Band 8+ scorers</h2>
+    <p class="sec-sub">Every teacher has taken the real exam, scored 8.0 or above, and trained in our methodology before stepping into a lesson.</p>
+
+    <div class="founders">
+      <div class="av-grid">
+        <div class="av"><div class="photo">SA</div><b>Sarvar Akhmedov</b><span>Founder · Writing</span><div class="band">Band 8.5</div></div>
+        <div class="av"><div class="photo">DK</div><b>Diyora Karimova</b><span>Speaking lead</span><div class="band">Band 9.0</div></div>
+        <div class="av"><div class="photo">JT</div><b>Jasur Tursunov</b><span>Reading · Listening</span><div class="band">Band 8.5</div></div>
+        <div class="av"><div class="photo">MO</div><b>Madina Omonova</b><span>Grammar · Vocab</span><div class="band">Band 8.0</div></div>
+      </div>
+      <div>
+        <h3 style="margin:0 0 10px;font-size:24px;letter-spacing:-.01em">A method built from the exam, not from textbooks.</h3>
+        <p style="color:var(--muted);margin:0 0 18px">Our founder Sarvar started this school after seeing students drill the wrong things for months. We reverse-engineered the band descriptors and built one short lesson per scoring criterion — that's it. No filler.</p>
+        <a href="#" class="btn ghost">Meet the full team →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section style="padding:48px 0">
+  <div class="container" style="text-align:center">
+    <span class="sec-eye">Trusted partners</span>
+    <h2 class="sec-h" style="font-size:26px">We work with the institutions that set the standard</h2>
+    <div class="partners">
+      <div class="plogo">IDP IELTS</div>
+      <div class="plogo">British Council</div>
+      <div class="plogo">Cambridge Assessment</div>
+      <div class="plogo">ETS · TOEFL</div>
+      <div class="plogo">Pearson PTE</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#F3F5FA">
+  <div class="container">
+    <span class="sec-eye">FAQ</span>
+    <h2 class="sec-h">Questions, answered honestly</h2>
+    <p class="sec-sub">If something's not here, message us on Telegram — we reply within an hour during work days.</p>
+    <div class="faq">
+      <details open>
+        <summary>How long until I reach Band 7?</summary>
+        <p>Most students with a starting band of 5.5–6.0 reach Band 7 in 8–12 weeks of focused study (about 6 hours/week). We send a personalised timeline after your free diagnostic.</p>
+      </details>
+      <details>
+        <summary>Do I have to buy a full bundle?</summary>
+        <p>No — pick individual modules. Many students only need Writing + Speaking. Bundles just save money if you need everything.</p>
+      </details>
+      <details>
+        <summary>Is Writing & Speaking graded by AI or humans?</summary>
+        <p>Humans, always. AI assists our teachers, but the final feedback and band you see is from a Band 8.5+ scorer.</p>
+      </details>
+      <details>
+        <summary>What if I don't hit my target band?</summary>
+        <p>Free study extension until you do — as long as you complete the assigned lessons and at least 2 mock exams.</p>
+      </details>
+      <details>
+        <summary>Which exam — IELTS Academic or General?</summary>
+        <p>Academic is for universities and most professional registrations. General is for migration and work routes. Not sure? Take our free 5-minute quiz.</p>
+      </details>
+      <details>
+        <summary>Can I pay in instalments?</summary>
+        <p>Yes — Click, Payme, and Stripe all support 3-month instalments on bundles. No interest, no hidden fees.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta-strip">
+      <div>
+        <h3>Start with a free diagnostic</h3>
+        <p>30 minutes. Real band score. A study plan you can actually follow.</p>
+      </div>
+      <a href="#" class="btn big">Take free test →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:14px"><span class="logo-mark">B↑</span> BandUp</a>
+        <p style="color:var(--muted);font-size:14px;max-width:340px;margin-top:12px">Modular IELTS preparation built around the actual band descriptors. Study what moves your score — skip everything that doesn't.</p>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#">Listening</a></li>
+          <li><a href="#">Reading</a></li>
+          <li><a href="#">Writing</a></li>
+          <li><a href="#">Speaking</a></li>
+          <li><a href="#">Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Teachers</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>info@bandup.uz</li>
+          <li>+998 90 123 45 67</li>
+          <li>Tashkent · Online worldwide</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 BandUp Education. All rights reserved.</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Refund policy</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

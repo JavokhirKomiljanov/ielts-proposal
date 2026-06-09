@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>IELTS Platform — Project Estimate & Tariffs</title>
+<style>
+  :root{
+    --bg:#F7F9FC;
+    --ink:#1B2A41;
+    --muted:#5B6B85;
+    --line:#E4E9F2;
+    --card:#FFFFFF;
+    --brand:#3D7BFF;
+    --brand-soft:#E8F0FF;
+    --mint:#34C2A0;
+    --mint-soft:#E3F7F1;
+    --amber:#F5A623;
+    --amber-soft:#FFF3DE;
+    --violet:#7C5CFF;
+    --violet-soft:#EFEAFF;
+    --rose:#F26B6B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55}
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 24px 80px}
+  header.hero{margin-bottom:40px}
+  .eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;
+    background:var(--brand-soft);color:var(--brand);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  h1{font-size:38px;line-height:1.15;margin:14px 0 10px;font-weight:700;letter-spacing:-.01em}
+  .lede{color:var(--muted);max-width:780px;font-size:17px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .meta span{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  @media (max-width: 980px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;
+    transition:transform .15s ease, box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 50px -28px rgba(27,42,65,.25)}
+  .card.featured{border:1.5px solid var(--brand);box-shadow:0 24px 60px -32px rgba(61,123,255,.45);position:relative}
+  .badge{position:absolute;top:-12px;right:24px;background:var(--brand);color:#fff;font-size:11px;font-weight:700;
+    letter-spacing:.06em;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+  .tier-name{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .tier-title{font-size:24px;font-weight:700;margin:8px 0 6px}
+  .tier-sub{color:var(--muted);font-size:14px;min-height:42px}
+  .price{display:flex;align-items:baseline;gap:6px;margin:22px 0 4px}
+  .price .amount{font-size:42px;font-weight:700;letter-spacing:-.02em}
+  .price .unit{color:var(--muted);font-size:14px}
+  .timeline{display:flex;gap:18px;color:var(--muted);font-size:13px;margin-bottom:18px}
+  .timeline b{color:var(--ink);font-weight:600}
+  ul.feat{list-style:none;padding:0;margin:14px 0 22px;flex:1}
+  ul.feat li{padding:8px 0 8px 28px;position:relative;font-size:14.5px;color:#2B3A55;border-top:1px dashed var(--line)}
+  ul.feat li:first-child{border-top:none}
+  ul.feat li::before{content:"";position:absolute;left:0;top:14px;width:16px;height:16px;border-radius:50%;
+    background:var(--mint-soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%2334C2A0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5l3 3 6-6'/></svg>") center/12px no-repeat}
+  ul.feat li.minus::before{
+    background:#FCE7E7 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23F26B6B' stroke-width='2.2' stroke-linecap='round' d='M4 8h8'/></svg>") center/12px no-repeat}
+  ul.feat li.minus{color:#94A0B7}
+  .pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;margin-left:6px}
+  .pill.mint{background:var(--mint-soft);color:#1F8E73}
+  .pill.amber{background:var(--amber-soft);color:#A86B00}
+  .pill.violet{background:var(--violet-soft);color:#5B3FE0}
+  .cta{display:inline-block;text-align:center;padding:14px 18px;border-radius:12px;background:var(--ink);color:#fff;
+    text-decoration:none;font-weight:600;font-size:15px}
+  .cta.brand{background:var(--brand)}
+  .scope{margin-top:64px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px}
+  .scope h2{margin:0 0 6px;font-size:22px}
+  .scope p{color:var(--muted);margin:0 0 22px}
+  .scope-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width:780px){.scope-grid{grid-template-columns:1fr}}
+  .scope-item{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#FAFBFE}
+  .scope-item b{display:block;font-size:14px;margin-bottom:4px}
+  .scope-item span{color:var(--muted);font-size:13.5px}
+  table.compare{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  table.compare th,table.compare td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  table.compare th{background:#F2F5FB;font-weight:600;color:var(--ink);font-size:13px}
+  table.compare td.c{text-align:center;width:140px}
+  table.compare tr:last-child td{border-bottom:none}
+  .yes{color:#1F8E73;font-weight:700}
+  .no{color:#C44A4A;font-weight:700}
+  .part{color:#A86B00;font-weight:700}
+  .notes{margin-top:40px;color:var(--muted);font-size:13.5px;line-height:1.7}
+  .notes b{color:var(--ink)}
+  footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Project Estimate · IELTS Platform</span>
+    <h1>Three tariffs for the IELTS learning platform</h1>
+    <p class="lede">Based on the Technical Task: minimalist educational interface, home + products + cart + staff + Business English (coming soon) + AI module. Choose the scope that matches your launch goal — from a fast public-facing site to a full LMS with payments and AI.</p>
+    <div class="meta">
+      <span>Stack: Next.js + Tailwind · Node/Prisma · PostgreSQL</span>
+      <span>Hosting: Vercel / Cloudflare + S3 for video</span>
+      <span>Payments: Stripe / Click / Payme</span>
+      <span>Rate basis: $35/hr blended</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- TARIFF 1 -->
+    <div class="card">
+      <div class="tier-name">Tariff 1 · Starter</div>
+      <div class="tier-title">Marketing Site</div>
+      <div class="tier-sub">A polished public face for the school. Sells the brand, lists products, captures leads — no payments yet.</div>
+      <div class="price"><span class="amount">$3,800</span><span class="unit">/ one-time</span></div>
+      <div class="timeline"><span><b>~4</b> weeks</span><span><b>1</b> designer · <b>1</b> dev</span></div>
+      <ul class="feat">
+        <li>Home page (logo, brand, mission, slogan, stats, founders, partners, FAQ)</li>
+        <li>Products overview page (8 modules + 2 bundles)</li>
+        <li>Per-product detail pages (content, lesson plan, outcome, price, demo video, achievements) <span class="pill mint">10 pages</span></li>
+        <li>Staff page (3–4 key personnel)</li>
+        <li>Business English placeholder (“Coming soon”)</li>
+        <li>Contact / lead form → Telegram + email</li>
+        <li>Responsive (mobile / tablet / desktop)</li>
+        <li>SEO base + Google Analytics + Meta Pixel</li>
+        <li class="minus">No shopping cart / online payment</li>
+        <li class="minus">No user accounts / admin panel</li>
+        <li class="minus">No AI features</li>
+      </ul>
+      <a class="cta" href="#">Choose Starter</a>
+    </div>
+
+    <!-- TARIFF 2 -->
+    <div class="card featured">
+      <span class="badge">Recommended</span>
+      <div class="tier-name">Tariff 2 · Standard</div>
+      <div class="tier-title">Full LMS + Storefront</div>
+      <div class="tier-sub">Everything in Starter, plus accounts, cart, online payments, discounts, admin — the complete spec without AI.</div>
+      <div class="price"><span class="amount">$9,200</span><span class="unit">/ one-time</span></div>
+      <div class="timeline"><span><b>~8</b> weeks</span><span><b>1</b> designer · <b>2</b> devs · <b>1</b> QA</span></div>
+      <ul class="feat">
+        <li>Everything in Starter</li>
+        <li>Student accounts (email / Google / Telegram login)</li>
+        <li>Shopping cart: selected items, live price calculation, discounts <span class="pill amber">core ask</span></li>
+        <li>Bundle pricing logic (Academic bundle auto-discount)</li>
+        <li>Payment gateway integration (Stripe + Click / Payme)</li>
+        <li>Video lesson delivery (demo + paid, S3 + signed URLs)</li>
+        <li>Progress tracking per module (Listening / Reading / Writing / Speaking…)</li>
+        <li>Mock exam module with auto-scoring (L+R)</li>
+        <li>Admin panel: content, prices, discounts, students, orders</li>
+        <li>Email + Telegram notifications (purchase, lesson reminders)</li>
+        <li class="minus">AI tutor / AI grading not included</li>
+      </ul>
+      <a class="cta brand" href="#">Choose Standard</a>
+    </div>
+
+    <!-- TARIFF 3 -->
+    <div class="card">
+      <div class="tier-name">Tariff 3 · Premium</div>
+      <div class="tier-title">LMS + AI Tutor</div>
+      <div class="tier-sub">Standard plus the AI module: writing & speaking grading, vocabulary coach, personalised study plans, mobile PWA.</div>
+      <div class="price"><span class="amount">$18,500</span><span class="unit">/ one-time</span></div>
+      <div class="timeline"><span><b>~12</b> weeks</span><span><b>1</b> designer · <b>3</b> devs · <b>1</b> QA · <b>1</b> AI eng</span></div>
+      <ul class="feat">
+        <li>Everything in Standard</li>
+        <li>AI Writing grading (Task 1 + Task 2, band score + feedback) <span class="pill violet">AI</span></li>
+        <li>AI Speaking simulator (voice in → band + transcript + feedback) <span class="pill violet">AI</span></li>
+        <li>AI Vocabulary coach (spaced repetition, weak-word drills)</li>
+        <li>Personalised study plan generator (target band → weekly plan)</li>
+        <li>Mobile PWA (installable, offline reading)</li>
+        <li>Analytics dashboard for management (revenue, cohorts, drop-off)</li>
+        <li>Affiliate / referral system</li>
+        <li>Business English module unlock-ready (no waiting)</li>
+        <li>3 months of post-launch support + iteration</li>
+      </ul>
+      <a class="cta" href="#">Choose Premium</a>
+    </div>
+
+  </div>
+
+  <!-- SCOPE -->
+  <section class="scope">
+    <h2>What's covered in every tariff</h2>
+    <p>Baseline included regardless of tier — so you never re-pay for fundamentals.</p>
+    <div class="scope-grid">
+      <div class="scope-item"><b>Design system</b><span>Soft educational palette, typography, iconography, components in Figma.</span></div>
+      <div class="scope-item"><b>Brand integration</b><span>Logo + slogan + mission + motivational quote placement.</span></div>
+      <div class="scope-item"><b>Partner block</b><span>IDP IELTS, British Council, Cambridge Assessment logos & links.</span></div>
+      <div class="scope-item"><b>FAQ engine</b><span>Editable Q&A list, schema.org markup for Google snippets.</span></div>
+      <div class="scope-item"><b>Hosting + domain</b><span>Setup on Vercel / Cloudflare, SSL, DNS, basic CDN.</span></div>
+      <div class="scope-item"><b>Handover</b><span>Source code, admin training video, 14-day bug-fix warranty.</span></div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <h2 style="margin:48px 0 0;font-size:22px">Feature comparison</h2>
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="c">Starter<br><span style="color:var(--muted);font-weight:400">$3,800</span></th>
+        <th class="c">Standard<br><span style="color:var(--brand);font-weight:600">$9,200</span></th>
+        <th class="c">Premium<br><span style="color:var(--muted);font-weight:400">$18,500</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Home + brand + partners + FAQ</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>10 product detail pages with demo videos</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Staff page (3–4 personnel)</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Lead form → Telegram + email</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Student accounts</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Cart + price calculation + discounts</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Online payments (Stripe / Click / Payme)</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Video lesson delivery (paid)</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Mock exam auto-scoring (L + R)</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>Admin panel (content / prices / orders)</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td>AI Writing grading</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td></tr>
+      <tr><td>AI Speaking simulator</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td></tr>
+      <tr><td>AI Vocabulary coach + study plan</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td></tr>
+      <tr><td>Mobile PWA</td><td class="c no">—</td><td class="c part">basic</td><td class="c yes">✓</td></tr>
+      <tr><td>Analytics dashboard for management</td><td class="c no">—</td><td class="c part">basic</td><td class="c yes">✓</td></tr>
+      <tr><td>Post-launch support</td><td class="c">14 days</td><td class="c">1 month</td><td class="c">3 months</td></tr>
+    </tbody>
+  </table>
+
+  <div class="notes">
+    <p><b>Payment schedule.</b> 40% on contract signing · 30% on design sign-off · 30% on launch.</p>
+    <p><b>Out of scope (priced separately).</b> Copywriting in 2nd / 3rd languages · video production of demo lessons · paid traffic / SMM setup · ongoing AI inference costs (pass-through, ~$0.02–0.04 per writing grade).</p>
+    <p><b>Why Standard is recommended.</b> The Technical Task explicitly lists cart, price calculation, and discounts — that gate is only crossed at Tariff 2. Premium adds the AI module which the brief leaves as “to be discussed”, so it's worth pricing now but deciding after a 30-min scoping call.</p>
+  </div>
+
+  <footer>
+    <span>Prepared for: IELTS Platform · Technical Task review</span>
+    <span>Valid 30 days · prices in USD</span>
+  </footer>
+
+</div>
+</body>
+</html>
